@@ -15,3 +15,4 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 Rails.application.config.assets.precompile += %w( jquery.wmuSlider.js )
 Rails.application.config.assets.precompile += %w( jquery.flexisel.js )
+Rails.application.config.assets.precompile += %w( easyResponsiveTabs.js )

@@ -97,3 +97,23 @@ en:
       copy:
         title: "&copy; 2016 Women's Fashion. All rights reserved | Design by"
         author: "Zekii"
+    userlogin:
+      title: "Don't Wait, Login now!"
+      signin: "Sign In"
+      signup: "Sign Up"
+      siginform:
+        email: "Email"
+        pass: "Password"
+        submit: "Submit"
+      signupform:
+        name: "Name"
+        pass: "Password"
+        confirm: "Password Confirmation"
+        email: "Email"
+        phone: "Number Phone"
+        submit: "Create Account"
+      placeholder:
+        name: "Name User"
+        email: "Email Address"
+        pass: "Password"
+        confirm: "Password Confirmation"
