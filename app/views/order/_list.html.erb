@@ -1,0 +1,27 @@
+<tr class="rem">
+  <td class="invert"><%= item.id + 1 %></td>
+  <td class="invert">
+    <%= item.name %>
+  </td>
+  <td class="invert">
+    <%= item.phone %>
+  </td>
+  <td class="invert">
+    <%= item.address %>
+  </td>
+  <td class="invert">
+    <%= item.created_at %>
+  </td>
+  <td class="invert">
+    <% item.product_orders.all.each do |order| %>
+      <p><%= (find_product order.product_id).name %></p>
+    <% end %>
+  </td>
+  <td class="invert">
+    <%= item.status %>
+  </td>
+  <td class="invert">
+    <%= item.totalPrice %>
+  </td>
+</tr>
+

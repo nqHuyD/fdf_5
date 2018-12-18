@@ -1,0 +1,37 @@
+<div class="checkout checkout-cart-ajax">
+  <div class="container">
+    <h3>
+      <%= raw(t("layouts.order.contain",product: current_cart_length)) %>
+    </h3>
+    <div class="checkout-right">
+      <table class="timetable_sub">
+        <thead>
+          <tr>
+            <th><%= t("layouts.order.table.id") %></th>
+            <th><%= t("layouts.order.table.name") %></th>
+            <th><%= t("layouts.order.table.phone") %></th>
+            <th><%= t("layouts.order.table.address") %></th>
+            <th><%= t("layouts.order.table.day") %></th>
+            <th><%= t("layouts.order.table.product") %></th>
+            <th><%= t("layouts.order.table.status") %></th>
+            <th><%= t("layouts.order.table.total") %></th>
+          </tr>
+        </thead>
+        <% current_user.orders.all.each do |item| %>
+          <%= render partial: "list", locals: {item: item} %>
+        <% end %>
+        </div>
+      </table>
+    </div>
+    <div class="checkout-left">
+      <div class="checkout-right-basket">
+        <%= link_to product_index_path do %>
+          <span class="glyphicon glyphicon-menu-left" aria-hidden="true">
+          </span>
+          <%= t("layouts.cart.checkout.continue") %>
+        <% end %>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>

@@ -43,6 +43,8 @@ en:
       mail: "Mail Us"
       empty: "Empty Cart"
       store: "<i>Food Store</i>"
+      items: " Items"
+      priceunit: "$ %{price}"
     home:
       banner:
         title: "Foods fade,"
@@ -86,15 +88,88 @@ en:
         title: "Zekii Menu"
         food: "Food Category"
         drink: "Drink Category"
+        price: "Price Filter"
         sort:
           default: "Default Sorting"
-          alpha: "Sort by alphabet"
+          alphaaz: "Sort by alphabet A to Z"
+          alphaza: "Sort by alphabet Z to A"
           pricelh: "Sort by Price low to high"
           pricehl: "Sort by Price high to low"
           rating: "Sort by average Rating"
-        count: "Having: %{result} data"
+        count: "Having <b>%{result}</b> product now"
+        menu:
+          food:
+            fastfood: "Fast food"
+            chocolate: "Chocolate"
+            salads: "Salads"
+            sandwiches: "Sandwiches"
+            koreanfood: "Korean Food"
+            japanfood: "Japan Food"
+            desserts: "Desserts"
+          drink:
+            soda: "Soda"
+            fruitdrink: "Fruit Drink"
+            milktea: "Milk Tea"
+            coffee: "Coffee"
+            tea: "Tea"
       related:
         title: "Related Product"
+        record:
+          priceunit: "$ %{price}"
+          addcart: "Add To Cart"
+      single:
+        description: "Description"
+        quantity: "Quantity"
+        size:
+          title: "Size"
+          medium: "M"
+          large: "L"
+          xlarge: "XL"
+        information: "Product Information"
+        review: "Reviews"
+        reviews: "(%{count}) Reviews"
+    cart:
+      banner:
+        title: "<h2>Check Out</h2>"
+      breadcum:
+        title: "CheckOut"
+      checkout:
+        contain: "Your Foods cart contains: <span>%{product} Products</span>"
+        table:
+          numberid: "No."
+          image: "Image"
+          quantity: "Quantity"
+          name: "Name"
+          unit: "Unit Price"
+          total: "Total Price"
+          remove: "Remove"
+        youhave: "You have %{count}"
+        total: "Total <i>-</i>"
+        continue: "Continue Shopping"
+        order: "Order Now"
+    order:
+      contain: "You made : <span>%{product} Orders</span>"
+      form:
+        name: "Receiver Name"
+        address: "Receiver Address"
+        phone: "Receiver Phone"
+        submit: "That's Correct"
+      placeholder:
+        address: "Give Us Your Address ... "
+      accept: "Are you accept to pay for that ???"
+      approve: "Yes"
+      notapprove: "No"
+      justhave: " Just have only "
+      history: "<h4>History Order</h4>"
+      table:
+        id: "Order ID"
+        name: "Name Receiver"
+        phone: "Phone Receiver"
+        address: "Address Receiver"
+        day: "Created Day"
+        product: "Products"
+        status: "Status"
+        total: "Total Price"
     footer:
       contact:
         title: "Contact"
@@ -174,3 +249,5 @@ en:
       prodcuts:
         foodimages:
           imagesize: "should be less than 3MB"
+      order:
+        empty: "Cart is empty please choice foods before ordering"
