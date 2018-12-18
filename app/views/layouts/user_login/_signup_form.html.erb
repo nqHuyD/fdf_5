@@ -3,7 +3,6 @@
     <div class="register">
        <%= form_for :user, url: signup_path, remote: true do |f| %>
         <div class="errorsform errors-signup-form">
-
         </div>
         <%= f.label :name, t("layouts.user_login.signupform.name") %>
         <%= f.text_field :name, placeholder: t("layouts.user_login.placeholder.name") %>

@@ -125,6 +125,7 @@ en:
         email: "Your Email"
         phone: "Your Phone"
         password: "Password"
+        image: "Profile Image"
         confirm: "Password Confirmation"
         submit: "Save Changes"
       logoutform:
@@ -146,3 +147,7 @@ en:
         danger:
           find: "Can not Find User"
           login: "Your Email or Password is not correct"
+    errors:
+      userlogin:
+        updatingform:
+          avatarsize: "should be less than 2MB"

@@ -20,6 +20,9 @@
         <%= f.label :phone, t("layouts.user_login.updatingform.phone") %><br/>
         <%= f.telephone_field :phone, placeholder: current_user.phone, value: current_user.phone %>
 
+        <%= f.label :profile_img, t("layouts.userlogin.updatingform.image") %><br/>
+        <%= f.file_field :profile_img, accept: Settings.validates.user.avatar.image.accept %>
+
         <div class="sign-up">
           <%= f.submit t("layouts.user_login.updatingform.submit") %>
         </div>
