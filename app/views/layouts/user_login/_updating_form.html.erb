@@ -3,7 +3,6 @@
     <div class="register">
       <%= form_for :user, url: user_path(current_user.id), html: {method: "patch"}, remote: true do |f| %>
         <div class="errorsform errors-updating-form">
-
         </div>
         <%= f.label :name, t("layouts.user_login.updatingform.name") %>
         <%= f.text_field :name, placeholder: current_user.name, value: current_user.name %>

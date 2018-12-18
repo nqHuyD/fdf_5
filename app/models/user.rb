@@ -1,9 +1,15 @@
 class User < ApplicationRecord
+  has_many :orders
+  has_many :ranks
+
+  scope :sort_by_newest, ->{order("created_at desc")}
   before_save :downcase_email
 
   attr_accessor :remember_token
 
   mount_uploader :profile_img, AvatarUploader
+
+  enum role: [:admin, :staff, :deliver, :customer]
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :name, presence: true,
