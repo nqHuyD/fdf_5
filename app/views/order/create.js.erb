@@ -1,0 +1,7 @@
+$(".notification-order div").delay(200).fadeOut(200)
+
+<% @order.errors.full_messages.each do |msg| %>
+  $(".notification-order").append(`<li><%= msg %>`)
+<% end %>
+
+$(".notification-order li").delay(3000).fadeOut(300)

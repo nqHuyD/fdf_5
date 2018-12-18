@@ -1,0 +1,47 @@
+<div class="modal fade" id="modal_data_user_<%= users.id %>"" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="smallmodalLabel">User Profile</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <aside class="profile-nav alt">
+            <section class="card">
+                <div class="card-header user-header alt bg-dark">
+                    <div class="media">
+                        <a href="#">
+                          <% if users.profile_img.present? %>
+                            <%= image_tag(users.profile_img.url, class: "align-self-center rounded-circle mr-3",
+                              style: "width:70px; height:70px;") %>
+                          <% end %>
+                        </a>
+                        <div class="media-body">
+                            <h2 class="text-light display-6"><%= users.name %></h2>
+                            <p class="user_role_modal_ajax_<%= users.id %>"><%= users.role %></p>
+                        </div>
+                    </div>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <a href="#">
+                            <i class="fa fa-envelope"></i><%= users.email %>
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#">
+                            <i class="fa fa-mobile-phone"></i> <%= users.phone %>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </aside>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
