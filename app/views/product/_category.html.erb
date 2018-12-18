@@ -1,0 +1,100 @@
+<div class="dresses">
+    <div class="container">
+      <div class="w3ls_dresses_grids">
+        <div class="col-md-4 w3ls_dresses_grid_left">
+          <div class="w3ls_dresses_grid_left_grid">
+            <h3><%= t("layouts.product.category.title") %></h3>
+            <div class="w3ls_dresses_grid_left_grid_sub">
+              <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                  <h4 class="panel-title asd">
+                  <a class="pa_italic" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <span class="fa fa-plus" aria-hidden="true"></span>
+                      <i class="fa fa-minus" aria-hidden="true"></i><%= t(".food") %>
+                  </a>
+                  </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                  <div class="panel-body panel_text">
+                  <ul class="category-food-ul">
+                    <% Category.where(type_food: "food", active: true).each do |category| %>
+                      <li><a class="category_type_choice <%= category.id %>"><%= category.name %></a></li>
+                    <% end %>
+                  </ul>
+                  </div>
+                </div>
+                </div>
+                <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingTwo">
+                  <h4 class="panel-title asd">
+                  <a class="pa_italic collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <span class="fa fa-plus" aria-hidden="true"></span>
+                    <i class="fa fa-minus" aria-hidden="true"></i><%= t(".drink") %>
+                  </a>
+                  </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                   <div class="panel-body panel_text">
+                  <ul class="category-food-ul">
+                    <% Category.where(type_food: "drink", active: true).each do |category| %>
+                      <li><a class="category_type_choice <%= category.id %>"><%= category.name %></a></li>
+                    <% end %>
+                  </ul>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+            <br><br>
+            <div class="w3ls_dresses_grid_left_grid_sub">
+              <%= render "filter_price" %>
+            </div>
+            <br><br>
+            <div class="w3ls_dresses_grid_left_grid_sub">
+              <%= render "filter_rank" %>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+        <div class= "col-md-8 w3ls_dresses_grid_right">
+          <div class="w3ls_dresses_grid_right_grid2">
+            <div class="w3ls_dresses_grid_right_grid2_left">
+              <h3><%= raw(t("layouts.product.category.count",result: @total)) %></h3>
+            </div>
+            <div class="w3ls_dresses_grid_right_grid2_right">
+              <select name="select_item" class="select_item">
+                <option selected="selected" value = <%= Settings.food.filter.default %> >
+                  <%= t("layouts.product.category.sort.default") %>
+                </option>
+                <option value = <%=Settings.food.filter.alphaaz %>>
+                  <%= t("layouts.product.category.sort.alphaaz") %>
+                </option>
+                <option value = <%=Settings.food.filter.alphaza %>>
+                  <%= t("layouts.product.category.sort.alphaza") %>
+                </option>
+                <option value = <%=Settings.food.filter.rating %>>
+                  <%= t("layouts.product.category.sort.rating") %>
+                </option>
+                <option value = <%=Settings.food.filter.pricelh %>>
+                  <%= t("layouts.product.category.sort.pricelh") %>
+                </option>
+                <option value = <%=Settings.food.filter.pricehl %>>
+                  <%= t("layouts.product.category.sort.pricehl") %>
+                </option>
+              </select>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+          <div class="render-category">
+            <%= render partial: "rowdata" %>
+          </div>
+        </div>
+      <%= javascript_include_tag("categoryrender.js") %>
+      <div class="clearfix"></div>
+      <div class="render-pagination">
+        <%= render partial: "pagination" %>
+      </div>
+    </div>
+  </div>
+</div>

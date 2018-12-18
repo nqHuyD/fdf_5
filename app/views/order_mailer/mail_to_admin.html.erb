@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><%= t "mail.title", name: @user.name  %></h1>
+    <p>
+      <%= t "mail.detail"%>
+      <% @order.product_orders.each do |item| %>
+        <% product = Product.find_by id: item.product_id %>
+        <% if product.present? %>
+          <li><%= raw(t("layouts.order.table.product", product: product.name)) %></h3><br>
+          <%= raw(t("layouts.order.table.quantity", quantity: item.quanity)) %><br><br>
+        <% end %>
+      <% end %>
+      <h3><%= t("layouts.order.table.status", status: @order.status) %></h3><br>
+      <h3><%= t("layouts.order.table.total", total: @order.totalPrice) %></h3><br>
+  </p>
+  </body>
+</html>

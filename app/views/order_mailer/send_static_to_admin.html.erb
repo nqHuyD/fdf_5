@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><%= t "mail.endmonth.title" %></h1>
+    <p>
+      <h3><%= t("mail.endmonth.revenue", revenue: @revenue) %></h3><br>
+      <h3><%= t("mail.endmonth.product") %></h3>
+      <p>
+        <% @products.each do |product| %>
+          <strong><%= product.name %></strong>__
+        <% end %>
+      </p>
+      <h3><%= t("mail.endmonth.topproduct", product: @top_product.name) %></h3>
+      <h3><%= t("mail.endmonth.topcategory", category: @top_category.name) %></h3>
+    </p>
+  </body>
+</html>
