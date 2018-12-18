@@ -1,0 +1,17 @@
+$(".notification-order").html(`
+  <div class="accept_error_form">
+    <% @errorlist.each do |id| %>
+      <% product = Product.find_by id: id %>
+      <p><%= product.name + t("layouts.order.justhave") + product.inventory.to_s %></p>
+    <% end %>
+    <br><br>
+    <span><%= t("layouts.order.accept") %></span><br><br>
+    <button class="btn btn-success approve_error_order">
+      <%= t("layouts.order.approve") %>
+    </button>
+    <button class="btn btn-danger notapprove_error_order">
+      <%= t("layouts.order.notapprove") %>
+    </button>
+  </div>
+  <%= javascript_include_tag("approve_order_errors.js") %>
+`)

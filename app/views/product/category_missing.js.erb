@@ -1,0 +1,8 @@
+$(".errors-form-product-admin").append(`
+  <li>Please choice Category</li>
+  <% if @food_images.nil? %>
+    <li>Please insert Images</li>
+  <% end %>
+`)
+
+$(".errors-form-product-admin li").fadeOut(2000)
