@@ -1,0 +1,54 @@
+<div class="w3ls_dresses_grid_right_grid3">
+<% count = 0 %>
+<% total = 1 %>
+
+<% case @filter.to_i %>
+  <% when Settings.food.filter.alphaaz %>
+    <% if @category.present? %>
+      <% products = Product.where(category: @category).order(:name)%>
+    <% else %>
+      <% products = Product.order(:name)%>
+    <% end %>
+  <% when Settings.food.filter.alphaza %>
+    <% if @category.present? %>
+      <% products = Product.where(category: @category).order("name DESC") %>
+    <% else %>
+      <% products = Product.order("name DESC") %>
+    <% end %>
+  <% when Settings.food.filter.pricelh%>
+    <% if @category.present? %>
+      <% products = Product.where(category: @category).order(:price) %>
+    <% else %>
+      <% products = Product.order(:price) %>
+    <% end %>
+  <% when Settings.food.filter.pricehl%>
+    <% if @category.present? %>
+      <% products = Product.where(category: @category).order("price DESC") %>
+    <% else %>
+      <% products = Product.order("price DESC") %>
+    <% end %>
+  <% else %>
+    <% if @category.present? %>
+      <% products = Product.where(category: @category) %>
+    <% else %>
+      <% products = Product.all %>
+    <% end %>
+<% end %>
+<% products.each do |item| %>
+  <% if total > (@current_page-1)*Settings.food.record.pages && total <= (@current_page)*Settings.food.record.pages %>
+    <% total+=1 %>
+    <% count += 1 %>
+    <% if count == 3 %>
+      <% count = 0 %>
+      <%= render partial: "record", locals: {product: item} %>
+      <div class="clearfix"></div>
+      </div>
+      <div class="w3ls_dresses_grid_right_grid3">
+    <% else %>
+      <%= render partial: "record", locals: {product: item} %>
+    <% end %>
+  <% else %>
+    <% total+=1 %>
+  <% end %>
+<% end %>
+
