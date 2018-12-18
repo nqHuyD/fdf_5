@@ -1,0 +1,29 @@
+<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
+  <div class="facts">
+    <div class="register">
+      <%= form_for :user, url: user_path(current_user.id), html: {method: "patch"} do |f| %>
+        <%= f.label :name, t("layouts.userlogin.updatingform.name") %>
+        <%= f.text_field :name, placeholder: current_user.name, value: current_user.name %>
+
+        <%= f.label :password, t("layouts.userlogin.updatingform.password") %>
+        <%= f.password_field :password, placeholder: t("layouts.userlogin.placeholder.pass") %>
+
+        <%= f.label :password_confirmation, t("layouts.userlogin.updatingform.confirm") %>
+        <%= f.password_field :password_confirmation, placeholder: t("layouts.userlogin.placeholder.confirm")%>
+
+        <%= f.label :email, t("layouts.userlogin.updatingform.email") %>
+        <%= f.email_field :email, placeholder: current_user.email, value: current_user.email %>
+
+        <%= f.label :phone, t("layouts.userlogin.updatingform.phone") %><br/>
+        <%= f.telephone_field :phone, placeholder: current_user.phone, value: current_user.phone %><br/><br/>
+
+        <%= f.label :profile_img, t("layouts.userlogin.updatingform.image") %><br/>
+        <%= f.file_field :profile_img, accept: "image/jpeg,image/gif,image/png" %>
+
+        <div class="sign-up">
+          <%= f.submit t("layouts.userlogin.updatingform.submit") %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="checkout-left-basket">
+  <h4><%= t("layouts.cart.checkout.order") %></h4>
+  <ul>
+    <% for i in 0..current_cart_length-1 %>
+      <% product = find_product current_cart[i] %>
+      <li>
+        <%= t("layouts.cart.checkout.youhave", count: current_quanity[i]) %>
+        <i><%= product.name %></i>
+        <span class="invert_total_price_<%= i+1 %>">
+          <%= t("layouts.product.related.record.priceunit",
+          price: product.price * current_quanity[i].to_i) %>
+        </span>
+      </li>
+    <% end %>
+    <h1>
+      <%= raw(t("layouts.cart.checkout.total")) %>
+      <span>
+       <%= t("layouts.product.related.record.priceunit",
+          price: current_cart_total) %>
+      </span>
+    </h1>
+  </ul>
+</div>
