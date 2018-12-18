@@ -1,0 +1,45 @@
+<div class="additional_info">
+  <div class="container">
+    <div class="sap_tabs">
+      <div class="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+        <ul>
+          <li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span>
+           <%= t("layouts.product.single.information") %>
+        </span></li>
+          <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span>
+             <%= t("layouts.product.single.review") %>
+          </span></li>
+        </ul>
+        <div class="tab-1 resp-tab-content additional_info_grid" aria-labelledby="tab_item-0">
+          <h3><%= product.name %></h3>
+          <p><%= product.description %></p>
+        </div>
+
+        <div class="tab-2 resp-tab-content additional_info_grid" aria-labelledby="tab_item-1">
+          <h4><%= t("layouts.product.single.reviews", count: 2) %></h4>
+          <div class="additional_info_sub_grids">
+            <div class="col-xs-2 additional_info_sub_grid_left">
+              <img src="images/1.png" alt=" " class="img-responsive" />
+            </div>
+            <div class="col-xs-10 additional_info_sub_grid_right">
+              <div class="additional_info_sub_grid_rightl">
+                <a href="single.html">Laura</a>
+                <h5>April 03, 2016.</h5>
+                <p>Quis autem vel eum iure reprehenderit qui in ea voluptate
+                  velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat
+                  quo voluptas nulla pariatur.</p>
+              </div>
+              <div class="clearfix"> </div>
+            </div>
+            <div class="clearfix"> </div>
+          </div>
+          <div class="review_grids">
+            <h5>Comments</h5>
+            <textarea></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= javascript_include_tag("easyResponsiveTabs.js") %>
+  </div>
+</div>

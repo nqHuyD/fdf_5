@@ -22,13 +22,37 @@ validates:
   food:
     name:
       length:
-        maximum: 25
+        maximum: 40
     description:
       length:
-        maximum: 100
+        maximum: 200
     imagesize:
       maximum: 3
+  order:
+    address:
+      length:
+        maximum: 100
+  category:
+    name:
+      length:
+        maximum: 20
+        minimum: 4
 food:
   record:
-    row: 4
-    pages: 9
+    row: 3
+    pages: 6
+  filter:
+    default: 0
+    alphaaz: 1
+    alphaza: 2
+    rating: 3
+    pricelh: 4
+    pricehl: 5
+  page:
+    init: 1
+admin:
+  user_per_page: 4
+  order_per_page: 8
+  category_per_page: 6
+  product_per_page: 5
+  type_food_choice_all: "all"

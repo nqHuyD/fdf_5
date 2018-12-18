@@ -14,4 +14,8 @@ class AvatarUploader < CarrierWave::Uploader::Base
   def extension_whitelist
     %w(jpg jpeg gif png)
   end
+
+  def default_url _args
+    "/images/fallback/" + [version_name, "default.png"].compact.join("_")
+  end
 end

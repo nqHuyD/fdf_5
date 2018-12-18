@@ -1,0 +1,11 @@
+<% if @update_status.nil? %>
+  $(".errors-form-product-admin").append(`<li><%=
+    t ("layouts.notification.flash.danger.update") %></li>`)
+<% else %>
+  <% @product.errors.full_messages.each do |msg| %>
+    $(".errors-form-product-admin").append(`<li><%= msg %></li>`)
+  <% end %>
+<% end %>
+
+$(".errors-form-product-admin li").delay(2000).fadeOut(300);
+

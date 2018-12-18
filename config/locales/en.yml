@@ -43,6 +43,8 @@ en:
       mail: "Mail Us"
       empty: "Empty Cart"
       store: "<i>Food Store</i>"
+      items: " Items"
+      priceunit: "$ %{price}"
     home:
       banner:
         title: "Foods fade,"
@@ -60,7 +62,7 @@ en:
       newProduct:
         title: "New Products"
       topBrand:
-        title: "Top Brands"
+        title: "Our Partner"
       newLetter:
         title: "Newsletter"
         subtitle: "Excepteur sint occaecat cupidatat non proident, sunt."
@@ -86,25 +88,27 @@ en:
         title: "Zekii Menu"
         food: "Food Category"
         drink: "Drink Category"
+        price: "Price Filter"
         sort:
           default: "Default Sorting"
-          alpha: "Sort by alphabet"
+          alphaaz: "Sort by alphabet A to Z"
+          alphaza: "Sort by alphabet Z to A"
           pricelh: "Sort by Price low to high"
           pricehl: "Sort by Price high to low"
           rating: "Sort by average Rating"
-        count: "Having: %{result} data"
+        count: "Having <b>%{result}</b> product now"
         menu:
           food:
-            fastfood: "Fast fodd"
+            fastfood: "Fast food"
             chocolate: "Chocolate"
             salads: "Salads"
             sandwiches: "Sandwiches"
             koreanfood: "Korean Food"
-            japanfood: "Japanese Food"
+            japanfood: "Japan Food"
             desserts: "Desserts"
           drink:
             soda: "Soda"
-            fruitdrink: "fruit Drink"
+            fruitdrink: "Fruit Drink"
             milktea: "Milk Tea"
             coffee: "Coffee"
             tea: "Tea"
@@ -113,11 +117,70 @@ en:
         record:
           priceunit: "$ %{price}"
           addcart: "Add To Cart"
+      single:
+        description: "Description"
+        quantity: "Quantity"
+        size:
+          title: "Size"
+          medium: "M"
+          large: "L"
+          xlarge: "XL"
+        information: "Product Information"
+        review: "Reviews"
+        reviews: "(%{count}) Reviews"
+    cart:
+      banner:
+        title: "<h2>Check Out</h2>"
+      breadcum:
+        title: "CheckOut"
+      checkout:
+        contain: "Your Foods cart contains: <span>%{product} Products</span>"
+        table:
+          numberid: "No."
+          image: "Image"
+          quantity: "Quantity"
+          name: "Name"
+          unit: "Unit Price"
+          total: "Total Price"
+          remove: "Remove"
+        youhave: "You have %{count}"
+        total: "Total <i>-</i>"
+        continue: "Continue Shopping"
+        order: "Order Now"
+    order:
+      contain: "You made : <span>%{product} Orders</span>"
+      cofirm: "Order Confirmation"
+      show: "Show"
+      form:
+        name: "Receiver Name"
+        address: "Receiver Address"
+        phone: "Receiver Phone"
+        submit: "That's Correct"
+      placeholder:
+        address: "Give Us Your Address ... "
+      accept: "Are you accept to pay for that ???"
+      approve: "Yes"
+      notapprove: "No"
+      justhave: " Just have only "
+      history: "<h4>History Order</h4>"
+      table:
+        id: "Order ID"
+        info: "Detail Order Information"
+        name: "Name Receiver"
+        phone: "Phone Receiver"
+        address: "Address Receiver"
+        day: "Created Day"
+        productId: "<strong>Products ID:</strong> %{product_id} "
+        product: "<strong>Products Name:</strong> %{product} "
+        quantity: "=> <strong>Quantity:</strong> %{quantity} products"
+        price: ", <strong>Price:</strong> $ %{price}"
+        image: "Product Image"
+        status: "Order_Status: %{status}"
+        total: "Total Price: $%{total}"
     footer:
       contact:
         title: "Contact"
-        sub: "Duis aute irure dolor
-        in reprehenderit involuptate velit esse."
+        sub: "You can contact with us everytime"
       information:
         title: "Information"
         about: "About Us"
@@ -132,7 +195,7 @@ en:
       follow:
         title: "Follow Us"
       copy:
-        title: "&copy; 2016 Women's Fashion. All rights reserved | Design by"
+        title: "2018 Zekii Food All rights reserved | Design by"
         author: "Zekii"
     user_login:
       title: "Don't Wait, Login now!"
@@ -182,9 +245,15 @@ en:
           signup: "Sign Up Successful"
           login: "Login Successful"
           update: "Update Successful"
+          category: "Create Successful Category"
+          categoryUpdate: "Update Successful Category"
         danger:
-          find: "Can not Find User"
+          find: "Can not Find Data"
+          category: "Can not Find Category"
           login: "Your Email or Password is not correct"
+          sortcategory: "Your Sorting does not have any Data"
+          deletedata: "Can not Delete this data"
+          update: "Can not Update this data"
     errors:
       userlogin:
         updatingform:
@@ -192,3 +261,5 @@ en:
       prodcuts:
         foodimages:
           imagesize: "should be less than 3MB"
+      order:
+        empty: "Cart is empty please choice foods before ordering"

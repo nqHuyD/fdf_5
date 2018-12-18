@@ -3,7 +3,6 @@
     <div class="register">
       <%= form_for :user, url: user_path(current_user.id), html: {method: "patch"}, remote: true do |f| %>
         <div class="errorsform errors-updating-form">
-
         </div>
         <%= f.label :name, t("layouts.user_login.updatingform.name") %>
         <%= f.text_field :name, placeholder: current_user.name, value: current_user.name %>
@@ -15,10 +14,10 @@
         <%= f.password_field :password_confirmation, placeholder: t("layouts.user_login.placeholder.confirm")%>
 
         <%= f.label :email, t("layouts.user_login.updatingform.email") %>
-        <%= f.email_field :email, placeholder: current_user.email, value: current_user.email %>
+        <%= f.email_field :email, placeholder: current_user.email, value: current_user.email %><br><br>
 
         <%= f.label :phone, t("layouts.user_login.updatingform.phone") %><br/>
-        <%= f.telephone_field :phone, placeholder: current_user.phone, value: current_user.phone %>
+        <%= f.telephone_field :phone, placeholder: current_user.phone, value: current_user.phone %><br><br>
 
         <%= f.label :profile_img, t("layouts.userlogin.updatingform.image") %><br/>
         <%= f.file_field :profile_img, accept: Settings.validates.user.avatar.image.accept %>

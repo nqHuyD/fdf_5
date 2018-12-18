@@ -1,0 +1,5 @@
+$(".sort_category_ajax").html(`
+  <% @categories.each do |category| %>
+    <%= render_category_row category %>
+  <% end %>
+`)

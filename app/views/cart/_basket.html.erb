@@ -1,0 +1,35 @@
+<div class="checkout-left-basket">
+  <% if logged_in? %>
+    <% if current_user.orders.present? %>
+      <%= link_to raw(t("layouts.order.history")), order_index_path, class: "order-btn" %>
+    <% end %>
+  <% end %>
+  <span>
+    <h4 class="order-btn" data-toggle="modal" data-target="#order_modal">
+      <%= t("layouts.cart.checkout.order") %>
+    </h4>
+  </span>
+  <%= render "order/order_modal" %>
+  <ul>
+    <% for i in 0..current_cart_length-1 %>
+      <% product = find_product current_cart[i] %>
+      <% if product.present? %>
+        <li>
+          <%= t("layouts.cart.checkout.youhave", count: current_quanity[i]) %>
+          <i><%= product.name %></i>
+          <span class="invert_total_price_<%= i+1 %>">
+            <%= t("layouts.product.related.record.priceunit",
+            price: product.price * current_quanity[i].to_i) %>
+          </span>
+        </li>
+      <% end %>
+    <% end %>
+    <h1>
+      <%= raw(t("layouts.cart.checkout.total")) %>
+      <span>
+       <%= t("layouts.product.related.record.priceunit",
+          price: current_cart_total) %>
+      </span>
+    </h1>
+  </ul>
+</div>

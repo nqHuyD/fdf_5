@@ -1,0 +1,49 @@
+<div class="modal video-modal fade" id="myModal<%= product.id %>" tabindex="-1" role="dialog" aria-labelledby="myModal2" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <% if logged_in? %>
+          <button type="button" class="close btn-close-rating <%= product.id %>" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+        <% else %>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+        <% end %>
+      </div>
+      <section>
+        <div class="modal-body">
+          <div class="col-md-6 modal_body_left">
+            <% if product.food_images.present? %>
+              <%= image_tag( product.food_images.first.picture.url, alt: " ", class: "img-responsive" ) %>
+            <% end %>
+          </div>
+          <div class="col-md-6 modal_body_right">
+            <h4>
+              <%= product.name %>
+            </h4>
+            <h5>Category:</h5>
+            <% product.product_categorys.each do |category| %>
+              <span><%= Category.find_by(id: category.category_id).name %></span>
+            <% end %>
+            <h5>Description:</h5>
+            <p><%= product.description %></p>
+            <div class="modal_body_right_cart simpleCart_shelfItem">
+              <p><i class="item_price">
+                <%= t("layouts.product.related.record.priceunit", price: product.price) %>
+                </i></p>
+              <% if logged_in? %>
+              <div class="rating_<%= product.id %>">
+                <%= render partial: "product/ranking_product",locals: {product: product} %>
+              </div>
+              <% end %>
+              <p><a class="item_add" id="<%= product.id %>" >
+                <%= t("layouts.product.related.record.addcart") %>
+              </a></p>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

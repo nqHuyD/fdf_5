@@ -1,0 +1,11 @@
+$(".type_category_admin_admin_select").html(`
+  <% @type_food .each do |category| %>
+      <option value=<%= category.name %>><%= category.name %></option>
+  <% end %>
+`)
+
+$(".render_row_product_ajax").html(`
+  <% @product_data.each do |products| %>
+    <%= render_product_row products %>
+  <% end %>
+`)

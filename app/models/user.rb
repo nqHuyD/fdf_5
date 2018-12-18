@@ -1,9 +1,15 @@
 class User < ApplicationRecord
+  has_many :orders
+  has_many :ranks
+
+  scope :newest, ->{order("created_at desc")}
   before_save :downcase_email
 
   attr_accessor :remember_token
 
   mount_uploader :profile_img, AvatarUploader
+
+  enum role: [:admin, :staff, :deliver, :customer]
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :name, presence: true,
@@ -48,6 +54,18 @@ class User < ApplicationRecord
     end
   end
 
+  def from_omniauth auth_hash
+    user = find_or_create_by(uid: auth_hash["uid"],
+      provider: auth_hash["provider"])
+    user.name = auth_hash["info"]["name"]
+    user.email = auth_hash["info"]["email"]
+    user.profile_img = auth_hash["info"]["picture"]
+    user.password = "123456"
+
+    user.save!
+    user
+  end
+
   private
 
   def downcase_email
@@ -56,7 +74,7 @@ class User < ApplicationRecord
 
   # Validates the size of an uploaded picture.
   def size_notify
-    errortext = I18n.t "layouts.erros.userlogin.updatingform.avatarsize"
+    errortext = I18n.t("layouts.errors.userlogin.updatingform.avatarsize")
     errors.add(:profile_img, errortext)
   end
 

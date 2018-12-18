@@ -1,0 +1,7 @@
+$(".ajax_product_select_category").html(`
+  <% @category_data_product.each do |category| %>
+    <option value="<%= category.id %>">
+      <%= category.name %>
+    </option>
+  <% end %>
+`)

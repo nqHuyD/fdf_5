@@ -20,7 +20,11 @@ module SessionsHelper
   end
 
   def logged_in?
-    current_user.present?
+    if current_user.present?
+      current_user.active.present?
+    else
+      false
+    end
   end
 
   def remember user
