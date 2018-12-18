@@ -1,6 +1,7 @@
 class Product < ApplicationRecord
   has_many :food_images
 
+  scope :recent, ->{order "created_at DESC"}
   enum category: [:fastfood, :chocolate, :salads, :sandwiches, :koreanfood,
     :japanfood, :desserts, :soda, :fruitdrink, :milktea, :coffee, :tea]
 

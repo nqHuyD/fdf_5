@@ -17,12 +17,13 @@
                 </div>
                 <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                   <div class="panel-body panel_text">
-                  <ul>
-                    <li><a href="dresses.html">Dresses</a></li>
-                    <li><a href="sweaters.html">Sweaters</a></li>
-                    <li><a href="skirts.html">Shorts & Skirts</a></li>
-                    <li><a href="jeans.html">Jeans</a></li>
-                    <li><a href="shirts.html">Shirts</a></li>
+                  <ul class="category-food-ul">
+                    <li><a><%= t(".menu.food.fastfood") %></a></li>
+                    <li><a><%= t(".menu.food.chocolate") %></a></li>
+                    <li><a><%= t(".menu.food.salads") %></a></li>
+                    <li><a><%= t(".menu.food.koreanfood") %></a></li>
+                    <li><a><%= t(".menu.food.japanfood") %></a></li>
+                    <li><a><%= t(".menu.food.desserts") %></a></li>
                   </ul>
                   </div>
                 </div>
@@ -38,12 +39,12 @@
                 </div>
                 <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                    <div class="panel-body panel_text">
-                  <ul>
-                    <li><a href="sandals.html">Flats</a></li>
-                    <li><a href="sandals.html">Sandals</a></li>
-                    <li><a href="sandals.html">Boots</a></li>
-                    <li><a href="sandals.html">Heals</a></li>
-                    <li><a href="sandals.html">Shirts</a></li>
+                  <ul class="category-food-ul">
+                    <li><a><%= t(".menu.drink.soda") %></a></li>
+                    <li><a><%= t(".menu.drink.fruitdrink") %></a></li>
+                    <li><a><%= t(".menu.drink.milktea") %></a></li>
+                    <li><a><%= t(".menu.drink.coffee") %></a></li>
+                    <li><a><%= t(".menu.drink.tea") %></a></li>
                   </ul>
                   </div>
                 </div>
@@ -68,6 +69,9 @@
               </select>
             </div>
             <div class="clearfix"></div>
+          </div>
+          <div class="render-category">
+            <%= render partial: "layouts/product/rowdata" %>
           </div>
         </div>
       <div class="clearfix"> </div>

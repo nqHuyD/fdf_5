@@ -28,3 +28,7 @@ validates:
         maximum: 100
     imagesize:
       maximum: 3
+food:
+  record:
+    row: 4
+    pages: 9
