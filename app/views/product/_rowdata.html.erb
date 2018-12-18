@@ -1,0 +1,24 @@
+<div class="w3ls_dresses_grid_right_grid3">
+
+<% render_product_filter %>
+<%  count = 0 %>
+<%  total = 1 %>
+<% @products.each do |item| %>
+  <% if total > (@current_page-1)*Settings.food.record.pages && total <= (@current_page)*Settings.food.record.pages %>
+    <% total+=1 %>
+    <% count += 1 %>
+    <% if count == 3 %>
+      <% count = 0 %>
+      <%= render partial: "record", locals: {product: item} %>
+      <div class="clearfix"></div>
+      </div>
+      <div class="w3ls_dresses_grid_right_grid3">
+    <% else %>
+      <%= render partial: "record", locals: {product: item} %>
+    <% end %>
+  <% else %>
+    <% total+=1 %>
+  <% end %>
+<% end %>
+<%= javascript_include_tag("addcart.js") %>
+<%= javascript_include_tag("ranking_product.js") %>

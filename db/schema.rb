@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190107084104) do
+ActiveRecord::Schema.define(version: 20190109041138) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -87,17 +87,19 @@ ActiveRecord::Schema.define(version: 20190107084104) do
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
-    t.string "email"
-    t.string "password_digest"
+    t.string "email", default: "", null: false
     t.string "phone"
     t.string "profile_img"
     t.integer "role"
-    t.string "remember_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "uid"
     t.string "provider"
     t.boolean "active", default: true
+    t.string "encrypted_password", default: "", null: false
+    t.datetime "remember_created_at"
+    t.string "remember_token"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key "food_images", "products"

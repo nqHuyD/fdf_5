@@ -1,0 +1,67 @@
+<div class="page-container">
+  <div class="main-content">
+    <div class="container">
+      <% flash.each do |message_type, message| %>
+        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+      <% end %>
+    </div>
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <h3 class="title-5 m-b-35">data table</h3>
+        <div class="table-data__tool">
+          <div class="table-data__tool-left">
+              <div class="rs-select2--light rs-select2--md">
+                  <select class="type_food_admin_select" name="property">
+                      <option selected="selected" value="all">Food & Drink</option>
+                      <option value="food">Food</option>
+                      <option value="drink">Drink</option>
+                  </select>
+                  <div class="dropDownSelect2"></div>
+              </div>
+          </div>
+          <div class="table-data__tool-left">
+              <div class="rs-select2--light rs-select2--md">
+                  <select class="status_food_admin_select" name="property">
+                      <option selected="selected" value="all" >All Status</option>
+                      <option value="new_stuff">New Stuff</option>
+                      <option value="fresh">Fresh</option>
+                      <option value="trending">Trending</option>
+                      <option value="most_favorite">Most Favorite</option>
+                  </select>
+                  <div class="dropDownSelect2"></div>
+              </div>
+          </div>
+          <div class="table-data__tool-right">
+              <button class="au-btn au-btn-icon au-btn--green au-btn--small"
+              data-toggle="modal" data-target="#modal_create_category_row">
+                  <i class="zmdi zmdi-plus"></i>add Category</button>
+          </div>
+        </div>
+        <div class="table-responsive table-responsive-data2">
+          <table class="table table-data2">
+              <thead>
+                  <tr>
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Type</th>
+                      <th>Day Created</th>
+                      <th>Status</th>
+                      <th>Active status</th>
+                      <th>Active Change</th>
+                      <th></th>
+                  </tr>
+              </thead>
+              <tbody class="sort_category_ajax">
+                <% @category_data.each do |category| %>
+                  <%= render_category_row category %>
+                <% end %>
+              </tbody>
+          </table>
+        </div>
+        <%= will_paginate @category_data, renderer: BootstrapPagination::Rails %>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render partial: "modal_create_category" %>
+<%= javascript_include_tag("admin_javascript/category_admin_data.js") %>

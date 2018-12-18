@@ -1,0 +1,24 @@
+<div class="modal video-modal fade" id="list_order_modal_<%= order.id %>" tabindex="-1" role="dialog" aria-labelledby="list_order_modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content modal-order-content">
+      <div class="modal-header">
+        <button type="button" class="close-modal-order btn btn-info"
+          data-dismiss="modal" aria-label="Close" id="list_modal_btn_close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="listmodal">
+        <h1><%= t("layouts.order.table.info") %></h1>
+        <hr>
+        <br><br><br>
+        <% order.product_orders.each do |item| %>
+          <% product = find_product item %>
+          <% if product.present? %>
+            <li><%= raw(t("layouts.order.table.product", product: product.name)) %></h3><br>
+            <%= raw(t("layouts.order.table.quantity", quantity: item.quanity)) %><br><br>
+          <% end %>
+        <% end %>
+        <h3><%= t("layouts.order.table.status", status: order.status) %></h3><br>
+        <h3><%= t("layouts.order.table.total", total: order.totalPrice) %></h3><br>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="devise_form_login">
+  <h2><%= t "layouts.user_login.signin" %></h2>
+  <%= form_for resource, as: resource_name, url: session_path(resource_name) do |f| %>
+    <div class="form-group">
+      <%= f.label t("layouts.user_login.siginform.email") %><br />
+      <%= f.text_field :email, autofocus: true, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label t("layouts.user_login.siginform.pass") %><br />
+      <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+    </div>
+
+    <% if devise_mapping.rememberable? -%>
+      <div class="form-group">
+        <%= f.check_box :remember_me %>
+        <%= f.label t("layouts.user_login.siginform.remember") %>
+      </div>
+    <% end -%>
+
+    <div class="actions">
+      <%= f.submit t("layouts.user_login.siginform.submit"), class: "btn btn-primary" %>
+    </div>
+  <% end %>
+  <%= render "devise/shared/links" %>
+</div>
