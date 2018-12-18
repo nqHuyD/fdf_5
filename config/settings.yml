@@ -19,3 +19,12 @@ validates:
         maximum: 2
       image:
         accept: "image/jpeg,image/gif,image/png"
+  food:
+    name:
+      length:
+        maximum: 25
+    description:
+      length:
+        maximum: 100
+    imagesize:
+      maximum: 3

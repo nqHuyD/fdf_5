@@ -4,4 +4,6 @@ class StaticPagesController < ApplicationController
   def about; end
 
   def mail; end
+
+  def product; end
 end
