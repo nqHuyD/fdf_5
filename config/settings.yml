@@ -1,0 +1,13 @@
+validates:
+  user:
+    name:
+      length:
+        maximum: 30
+    password:
+      length:
+        minimum: 6
+    email:
+      length:
+        maximum: 30
+    session:
+      remember: 1
