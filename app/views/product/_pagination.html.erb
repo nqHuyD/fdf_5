@@ -1,0 +1,23 @@
+<% if @pages > 1 %>
+<ul class="pagination">
+  <li class="page-item previous-pagination disabled">
+    <a class="pagination-link" tabindex="-1">Previous</a>
+  </li>
+  <% @pages.times do |page| %>
+    <% if page == @pages-1 %>
+      <li class="page-item" id="pagi-id-<%= page+1 %>" >
+        <a class="pagination-link pagi-page-last"><%= page+1 %></a>
+      </li>
+    <% else %>
+      <li class="page-item" id="pagi-id-<%= page+1 %>" >
+        <a class="pagination-link"><%= page+1 %></a>
+      </li>
+    <% end %>
+  <% end %>
+  <li class="page-item next-pagination">
+    <a class="pagination-link">Next</a>
+  </li>
+</ul>
+</nav>
+<%= javascript_include_tag("pagination.js") %>
+<% end %>
