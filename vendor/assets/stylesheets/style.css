@@ -60,13 +60,12 @@ input[type="submit"],.panel-body ul li a,
     padding-left: .5em;
 }
 .w3l_login a {
-    font-size: .8em;
+    font-size: 35px;
     color: #BEBEBE;
     width: 50px;
     height: 50px;
     display: block;
     text-align: center;
-    border: 1px solid #BEBEBE;
 }
 .w3l_login a span{
 	top:1.3em;
@@ -170,6 +169,7 @@ label.icon-search span {
 }
 .box_1 a img {
   margin: 3px 0 0 0px;
+  width: 30%;
 }
 .box_1 p {
 	margin: 0;
@@ -311,7 +311,7 @@ li > a:focus {
 /*-- //navigation --*/
 /*-- banner --*/
 .banner{
-	background:url(/assets/b1.jpg) no-repeat 0px 0px;
+	background:url(/assets/banner/b1.jpg) no-repeat 0px 0px;
 /*-- w3layouts --*/
 	background-size:cover;
 	-webkit-background-size:cover;
@@ -321,7 +321,7 @@ li > a:focus {
 	min-height:700px;
 }
 .banner10{
-	background:url(/assets/b1.jpg) no-repeat 0px 0px;
+	background:url(/assets/banner/b1.jpg) no-repeat 0px 0px;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
@@ -334,10 +334,10 @@ li > a:focus {
 	min-height:400px;
 }
 .banner10 h2{
-	color: #ff9b05;
-    font-size: 3em;
+	color: white;
+    font-size: 4.5em;
     text-align: center;
-    padding: 2.5em 0 0;
+    padding: 1.5em 0 0;
 }
 .banner1{
 	background:url(/assets/banner3.jpg) no-repeat 0px 0px;
@@ -821,15 +821,15 @@ li.active > a:focus {
 }
 .w3agile_special_deals_grid_right_pos h5{
 	font-weight: 700;
-    color: #212121;
+    color: black;
     padding-left: 5em;
     margin: .5em 0 0;
 }
 .w3agile_special_deals_grid_right_pos h5 span{
-	font-weight: 300;
+	font-weight: 700;
     display: block;
-    color:#ffffff;
-    padding-left: 2em;
+    color: purple;
+    padding-left: 1em;
     margin: .5em 0 0.2em;
 }
 .w3agile_special_deals_grid_left_grid_pos{
@@ -892,7 +892,7 @@ li.active > a:focus {
 }
 .w3agile_special_deals_grid_left_grid1{
 	padding:2em 2em 4.3em;
-	background:#FF9B05;
+	background:black;
 	text-align:center;
 }
 .w3agile_special_deals_grid_left_grid1 img{
@@ -900,12 +900,12 @@ li.active > a:focus {
 }
 .w3agile_special_deals_grid_left_grid1 p{
 	margin:1em 0;
-	color:#FFF;
+	color:white;
 	line-height:1.8em;
 }
 .w3agile_special_deals_grid_left_grid1 h4{
 	font-size: 1.1em;
-    color: #fff;
+    color: white;
     margin: 1em 0 0;
 }
 /*-- wmuslider --*/
@@ -973,7 +973,7 @@ ul.wmuSliderPagination {
 /*-- //new-products --*/
 /*-- banner-bottom1 --*/
 .agileinfo_banner_bottom1_grid_left{
-	background:url(/assets/44.jpg) no-repeat 0px 0px;
+	background:url(/assets/banner_bottom/44.jpg) no-repeat 0px 0px;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
@@ -988,8 +988,8 @@ ul.wmuSliderPagination {
 	padding: 6em 5em 0 0;
 }
 .agileinfo_banner_bottom1_grid_left h3{
-	font-size: 14px;
-    color: #212121;
+	font-size: 25px;
+    color: white;
     text-transform: capitalize;
 	margin-bottom:4em;
 }
@@ -998,10 +998,10 @@ ul.wmuSliderPagination {
     font-size: 3em;
     font-weight: 700;
     margin: .5em 1em 0 0;
-    color: #ff9b05;
+    color: white;
 }
 .agileinfo_banner_bottom1_grid_left h3 span i{
-	color:#212121;
+	color:red;
 }
 .agileinfo_banner_bottom1_grid_left a,.team-bottom a{
 	text-align: right;
@@ -1018,7 +1018,7 @@ ul.wmuSliderPagination {
 	background:url(/assets/img-sp.png) no-repeat 112px -38px;
 }
 .agileinfo_banner_bottom1_grid_right{
-	background:url(/assets/45.jpg) no-repeat 0px 0px;
+	background:url(/assets/banner_bottom/45.jpg) no-repeat 0px 0px;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
@@ -1525,7 +1525,7 @@ h3.other-nw {
 .banner9 h2 span{
 	display: block;
     margin: .5em 0 0.5em 7em;
-    color:#212121;
+    color:red;
 }
 .new-products {
     background:#BEE5E2;
@@ -2134,8 +2134,8 @@ h2.typoh2{
     text-align: center;
 }
 .w3ls_about_grid_left1 span{
-	color:#ff9b05;
-	font-size:1.5em;
+	color: brown;
+	font-size:1.8em;
 	top: 1em;
 }
 /*-- //about --*/
@@ -2578,7 +2578,7 @@ td.invert-image a img {
 .rem{
 	position:relative;
 }
-.close1,.close2,.close3 {
+.close{
     background: url('/assets/close.png') no-repeat 0px 0px;
     cursor: pointer;
     width: 32px;
@@ -2620,15 +2620,6 @@ td.invert-image a img {
 .checkout-left-basket ul li span {
     float: right;
 }
-.checkout-left-basket ul li:nth-child(5) {
-    font-size: 1em;
-    color: #212121;
-    font-weight: 600;
-    padding: 1em 0;
-    border-top: 1px solid #DDD;
-	border-bottom: 1px solid #DDD;
-    margin: 2em 0 0;
-}
 .checkout-right-basket a{
 	padding:10px 30px;
 	color:#fff;
@@ -2656,10 +2647,10 @@ td.invert-image a img {
 		margin: 8em 0 0;
 	}
 	.banner {
-		min-height: 580px;
+		min-height: 560px;
 	}
 	.agileinfo_banner_bottom1_grid_left {
-		background-position:-95px 0px;
+
 	}
 	.banner1 {
 		background-position:-150px 0px;
@@ -2691,7 +2682,6 @@ td.invert-image a img {
 }
 @media (max-width: 1280px){
 	.agileinfo_banner_bottom1_grid_left {
-		background-position: -155px 0px;
 	}
 	.agileinfo_banner_bottom1_grid_right h4 {
 		width: 30%;
@@ -4289,7 +4279,7 @@ td.invert-image a img {
 		left: 41%;
 	}
 	.agileinfo_banner_bottom1_grid_left a, .team-bottom a {
-		font-size: 14px;
+		font-size: 22px;
 		background: url(/assets/img-sp.png) no-repeat 93px -5px;
 	}
 	.agileinfo_banner_bottom1_grid_left a:hover, .team-bottom a:hover {
