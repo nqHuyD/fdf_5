@@ -1,0 +1,10 @@
+$(".sort_category_ajax").html(`
+  <% @category_data.each do |category| %>
+    <%= render_category_row category %>
+  <% end %>
+`)
+
+$(".success-form-category-update").html(`
+  <span>Update Successful</span>
+`)
+$(".success-form-category-update span").fadeOut(2000)

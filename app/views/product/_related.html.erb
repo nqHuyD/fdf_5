@@ -1,0 +1,31 @@
+<div class="w3l_related_products">
+    <div class="container">
+      <h3><%= t("layouts.product.related.title") %></h3>
+      <ul id="flexiselDemo2">
+        <li>
+          <div class="w3l_related_products_grid">
+            <div class="agile_ecommerce_tab_left dresses_grid">
+              <div class="hs-wrapper hs-wrapper3">
+                <%= image_tag("36.jpg", alt: " ", class: "img-responsive" ) %>
+                <%= image_tag("51.jpg", alt: " ", class: "img-responsive" ) %>
+                <%= image_tag("27.jpg", alt: " ", class: "img-responsive" ) %>
+                <%= image_tag("28.jpg", alt: " ", class: "img-responsive" ) %>
+                <%= image_tag("37.jpg", alt: " ", class: "img-responsive" ) %>
+                <div class="w3_hs_bottom">
+                  <div class="flex_ecommerce">
+                    <a href="#" data-toggle="modal" data-target="#myModal6"><span class="fa fa-eye" aria-hidden="true"></span></a>
+                  </div>
+                </div>
+              </div>
+              <h5><a href="single.html">Black Shorts</a></h5>
+              <div class="simpleCart_shelfItem">
+                <p class="flexisel_ecommerce_cart"><span>$432</span> <i class="item_price">$323</i></p>
+                <p><a class="item_add" href="#">Add to cart</a></p>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <%= javascript_include_tag("jquery.flexisel.js") %>
+  </div>
+</div>

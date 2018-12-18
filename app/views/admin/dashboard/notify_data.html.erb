@@ -1,0 +1,17 @@
+<div class="page-container">
+  <div class="main-content">
+    <div class="section__content section__content--p30">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-7 offset-lg-3">
+          <h3>Notificaiton</h3>
+          <% @activities.each do |activity| %>
+            <%= render_notify activity %>
+          <% end %>
+          <%= paginate @activities, theme: "twitter-bootstrap-3" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%=  javascript_include_tag("admin_javascript/active_admin_data.js") %>

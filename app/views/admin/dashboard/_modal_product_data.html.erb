@@ -1,0 +1,85 @@
+<div class="modal fade" id="modal_product_data_row_<%=@products.id %>" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="smallmodalLabel">Information</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <aside class="profile-nav alt">
+            <section class="card">
+                <div class="card-header user-header alt bg-dark">
+                    <div class="media">
+                        <a href="#">
+                          <% if @products.food_images.first.present? %>
+                            <%= image_tag(@products.food_images.first.picture.url,
+                              class: "align-self-center rounded-circle mr-3",
+                              style: "width:120px; height:120px;") %>
+                          <% end %>
+                        </a>
+                        <div class="media-body">
+                            <h2 class="text-light display-6"><%= @products.name %></h2>
+                            <p class="user_role_modal_ajax_<%= @products.id %>"><%= @products.status %></p>
+                        </div>
+                    </div>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                      <a href="#">
+                          <i class="fa fa-tag"></i>
+                          <% @products.product_categorys.each do |category| %>
+                            <% @name =Category.find_by(id: category.category_id).name %>
+                            <p><%= @name%></p>
+                          <% end %>
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#" data-toggle="modal" data-target="#modal_images_product_data_row_<%=@products.id %>">
+                            <i class="fa fa-picture-o"></i> Images
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#">
+                            <i class="fa fa-usd"></i><%= @products.price %>
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#">
+                            <i class="fa fa-inbox"></i><%= @products.inventory %>
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#">
+                          <i class="fa fa-star"></i>
+                          <%= "none" if @products.average_rank==0 %>
+                          <%= @products.average_rank if @products.average_rank!=0 %>
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="#">
+                        <i class="fa fa-trophy"></i>
+                        <%= "none" if @products.status.nil? %>
+                        <%= @products.status if @products.status!=0 %>
+                      </a>
+                    </li>
+                </ul>
+                <div class="card">
+                  <div class="card-header">
+                    <strong class="card-title">Description</strong>
+                  </div>
+                  <div class="card-body">
+                    <%= @products.description %>
+                  </div>
+                </div>
+            </section>
+        </aside>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render partial: "images_product_show" %>

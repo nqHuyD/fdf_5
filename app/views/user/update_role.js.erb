@@ -1,0 +1,6 @@
+$(".current_role_ajax_<%= @users.id %>").html(`
+  <%= label_role_user @users.role %>
+`)
+$(".user_role_modal_ajax_<%= @users.id %>").html(`
+  <%= @users.role %>
+`)
