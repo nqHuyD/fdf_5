@@ -1,0 +1,11 @@
+$(".ranking_product_ajax_<%= @product.id %>").html(`
+  <%= render partial: "product/average_rank_product",
+  locals: {product: @product} %>
+`)
+$(".rating_<%= @product.id %>").html(`
+  <%= render partial: "product/ranking_product",
+    locals: {product: @product} %>
+`)
+// $(".loading_again_ranking_js").html(`
+//   <%= javascript_include_tag("ranking_product.js") %>
+// `)

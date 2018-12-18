@@ -17,7 +17,7 @@
         <div class="row">
           <div class="col-md-8 modal_body_left modal_body_left1 border_right_modal" >
             <div class="sap_tabs">
-              <div id="horizontalTab">
+              <div class="horizontalTab" style="display: block; width: 100%; margin: 0px;">
                   <% if logged_in? %>
                     <ul>
                       <li class="resp-tab-item" aria-controls="tab_item-0">
@@ -31,6 +31,7 @@
                       </li>
                     </ul>
                     <!-- Showing_up Form -->
+                    <br>
                     <%= render "layouts/user_login/showing_form" %>
 
                     <!-- Updating Form -->
@@ -57,25 +58,26 @@
               </div>
             </div>
             <div id="OR" class="hidden-xs">
-              OR</div>
+              <%="OR" if current_user.nil? %></div>
           </div>
-          <div class="col-md-4 modal_body_right modal_body_right1">
-            <div class="row text-center sign-with">
-              <div class="col-md-12">
-                <h3 class="other-nw">
-                  Sign in with</h3>
-              </div>
-              <div class="col-md-12">
-                <ul class="social">
-                  <li class="social_facebook"><a href="#" class="entypo-facebook"></a></li>
-                  <li class="social_dribbble"><a href="#" class="entypo-dribbble"></a></li>
-                  <li class="social_twitter"><a href="#" class="entypo-twitter"></a></li>
-                  <li class="social_behance"><a href="#" class="entypo-behance"></a></li>
-                </ul>
+          <% if current_user.nil? %>
+            <div class="col-md-2 modal_body_left modal_body_left1">
+              <div class="row text-center sign-with">
+                <div class="col-md-10">
+                  <h3 class="other-nw">
+                    Sign in with</h3>
+                </div>
+                <div class="col-md-10">
+                  <ul class="social">
+                    <li class="social_facebook">
+                      <%= link_to "", "/auth/facebook",class: "entypo-facebook" %>
+                    </li>
+                  </ul>
+                </div>
+            <% end %>
               </div>
             </div>
           </div>
-        </div>
       </div>
     </div>
   </div>

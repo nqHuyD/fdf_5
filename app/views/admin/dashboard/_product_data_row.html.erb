@@ -1,0 +1,51 @@
+<tr>
+  <td class="pointer" data-toggle="modal" data-target="#modal_product_data_row_<%=@products.id %>">
+    <%= @products.id %>
+  </td>
+  <td class="pointer" data-toggle="modal" data-target="#modal_product_data_row_<%=@products.id %>">
+    <%= @products.name %>
+  </td>
+  <td class="pointer" data-toggle="modal" data-target="#modal_product_data_row_<%=@products.id %>">
+    <%= label_status_product @products.status %>
+  </td>
+  <td class="pointer" data-toggle="modal" data-target="#modal_product_data_row_<%=@products.id %>">
+     <%= t("layouts.product.related.record.priceunit", price: @products.price) %>
+  </td>
+  <td class="pointer" data-toggle="modal" data-target="#modal_product_data_row_<%=@products.id %>">
+    <%= @products.inventory %>
+  </td>
+  <td class="current_active_product_ajax_<%= @products.id %>">
+    <%= label_active @products.active %>
+  </td>
+  <td>
+    <div class="btn btn-group">
+      <div type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Status
+      </div>
+      <div class="dropdown-menu">
+        <span class="badge badge-success role_scroll_active_products" id="products_active_1_<%= @products.id %>"
+          value="true">
+          Active
+        </span><br>
+        <span class="badge badge-danger role_scroll_active_products" id="products_active_2_<%= @products.id %> "
+          value="false">
+          Not Active
+        </span><br>
+      </div>
+    </div>
+  </td>
+  <td>
+    <div class="table-data-feature">
+        <button class="item" data-toggle="modal" data-target="#tooltip_edit_product_<%= @products.id %>"
+          data-placement="top" title="Edit">
+            <i class="zmdi zmdi-edit"></i>
+        </button>
+        <button class="tooltip_destroy_product <%= @products.id %>"
+          data-placement="top" title="Delete">
+            <i class="zmdi zmdi-delete"></i>
+        </button>
+    </div>
+  </td>
+</tr>
+<%= render partial: "modal_product_data" %>
+<%= render partial: "modal_update_product" %>

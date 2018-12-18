@@ -1,13 +1,27 @@
 class SessionsController < ApplicationController
   def create
-    @user = User.find_by email: params[:sessions][:email_login].downcase
-    if @user && @user.authenticate(params[:sessions][:password_login])
-      flash[:success] = t "layouts.notification.flash.success.login"
-      authenticate_create @user
-    else
-      respond_to do |format|
-        format.js
+    if params[:sessions].present?
+      # Login Normal
+      @user = User.find_by email: params[:sessions][:email_login].downcase
+      @active = @user.active.present?
+      if @user && @user.authenticate(params[:sessions][:password_login]) && @active
+        flash[:success] = t "layouts.notification.flash.success.login"
+        authenticate_create @user
+      else
+        respond_to do |format|
+          format.js
+        end
       end
+    else
+      # Login Facebook
+      begin
+        user = User.from_omniauth(request.env["omniauth.auth"])
+        sessions[:user_id] = user.id
+        flash[:success] = "Welcome, #{user.email}"
+      rescue
+        flash[:warning] = "There was an error while authenticate"
+      end
+      redirect_to root_path
     end
   end
 
@@ -24,5 +38,9 @@ class SessionsController < ApplicationController
       forget user
     end
     redirect_to root_path
+  end
+
+  def failure
+    render :text => "Sorry, but you didn't allow access to our map"
   end
 end
