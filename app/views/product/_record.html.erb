@@ -1,0 +1,35 @@
+<div class="col-md-4 agileinfo_new_products_grid agileinfo_new_products_grid_dresses">
+  <div class="agile_ecommerce_tab_left dresses_grid">
+    <div class="hs-wrapper hs-wrapper2">
+      <div class="product-images">
+      <% product.food_images.each do |image| %>
+        <%= image_tag( image.picture.url, alt: " ", class: "img-responsive" ) %>
+      <% end %>
+      </div>
+      <div class="w3_hs_bottom w3_hs_bottom_sub1">
+        <ul>
+          <li>
+            <a href="#" data-toggle="modal" data-target="#myModal<%= product.id %>">
+              <span class="fa fa-eye" aria-hidden="true"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <h5><%= link_to product.name, product_path(product.id) %></a></h5>
+    <div class="simpleCart_shelfItem">
+      <p><i class="item_price"></i>
+        <%= t("layouts.product.related.record.priceunit", price: product.price) %>
+      </p>
+
+      <!-- Calling and Processing Ajax When Ranking One Product -->
+      <div class="ranking_product_ajax_<%= product.id %>">
+        <%= render partial: "product/average_rank_product", locals: {product: product} %>
+      </div>
+      <p><a class="item_add" id="<%= product.id %>">
+        <%= t("layouts.product.related.record.addcart") %>
+        </a></p>
+        <%= render partial: "record_dialog", locals: {product: product} %>
+    </div>
+  </div>
+</div>

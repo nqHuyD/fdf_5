@@ -1,0 +1,78 @@
+<div class="modal fade" id="modal_create_product_row" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="mediumModalLabel">Creating Product</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="card-body">
+          <div class="errors-form-product-admin errorsform"></div>
+          <%= form_for :product, url: product_index_path, method: :post, remote: true do |f| %>
+            <h4><%= f.label :name, "Product Name" %></h4>
+            <%= f.text_field :name, placeholder: "Input Product Name ...", class: "form-control" %>
+            <br>
+
+            <h4><%= f.label :inventory, "Inventory" %></h4>
+            <%= f.number_field :inventory, placeholder: "Input Inventory ...", class: "form-control" %>
+            <br>
+
+            <h4><%= f.label :price, "Price $$$" %></h4>
+            <%= f.number_field :price, placeholder: "The Price...", class: "form-control" %>
+            <br>
+
+            <h4><%= f.label :description, "Description" %></h4>
+            <%= f.text_area :description, placeholder: "Give the Description about Product...", class: "form-control" %>
+            <br>
+
+            <h4><i class="fa fa-coffee"><%= f.label :type_food, "Type" %></i></h4>
+
+            <select class="product_select_type_food">
+              <option value="all">Food & Drink</option>
+              <option value="food">Food</option>
+              <option value="drink">Drink</option>
+            </select>
+            <br><br>
+
+            <h4><i class="fa fa-flash"><%= f.label :category, "Type" %></i></h4>
+            <div class="product_option_category_data">
+              <select class="ajax_product_select_category">
+                <% @category_data.each do |category| %>
+                  <option value="<%= category.id %>">
+                    <%= category.name %>
+                  </option>
+                <% end %>
+              </select>
+            </div>
+            <br>
+
+            <div class="box_product_category">
+              <% session[:category_product].each do |session| %>
+                <%= render_category_box_data session %>
+              <% end %>
+            </div>
+            <br>
+
+            <h4><%= f.label :food_images, "Image" %></h4>
+            <%= f.file_field :food_images, multiple: true %>
+            <br>
+
+            <button type="submit" class="btn btn-info btn-sm">
+              <i class="fa fa-dot-circle-o"></i> Submit
+            </button>
+          <% end %>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="admin_product_ajax">
+  <%= javascript_include_tag "admin_javascript/product_admin_data.js" %>
+</div>
+
+<div class="admin_product_destroy_ajax">
+
+</div>

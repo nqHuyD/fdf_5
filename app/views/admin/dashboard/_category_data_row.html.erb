@@ -1,0 +1,51 @@
+<tr class="tr-shadow category_data_row_<%= @category.id %>">
+  <td class="desc">
+    <%= @category.id %>
+  </td>
+  <td class="desc">
+    <%= @category.name %>
+  </td>
+  <td>
+    <span class="block-email">
+      <%= @category.type_food %>
+    </span>
+  </td>
+  <td><%= @category.created_at.strftime("%F %T") %></td>
+  <td>
+    <%= label_category_status @category.status %>
+  </td>
+  <td class="current_active_category_ajax_<%= @category.id %>">
+    <%= label_active @category.active %>
+  </td>
+  <td>
+    <div class="btn btn-group">
+      <div type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Status
+      </div>
+      <div class="dropdown-menu">
+        <span class="badge badge-success role_scroll_active_category" id="category_active_1_<%= @category.id %>"
+          value="true">
+          Active
+        </span><br>
+        <span class="badge badge-danger role_scroll_active_category" id="category_active_2_<%= @category.id %> "
+          value="false">
+          Not Active
+        </span><br>
+      </div>
+    </div>
+  </td>
+  <td>
+      <div class="table-data-feature">
+          <button class="item" data-toggle="modal" data-target="#tooltip_edit_category_<%= @category.id %>"
+            data-placement="top" title="Edit">
+              <i class="zmdi zmdi-edit"></i>
+          </button>
+          <button class="tooltip_destroy_category <%= @category.id %>"
+            data-placement="top" title="Delete">
+              <i class="zmdi zmdi-delete"></i>
+          </button>
+      </div>
+  </td>
+<%= render partial: "modal_update_category" %>
+</tr>
+<tr class="spacer"></tr>

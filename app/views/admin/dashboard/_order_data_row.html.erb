@@ -1,0 +1,44 @@
+<tr>
+  <td class="text-center" data-toggle="modal" data-target="#modal_data_row_<%= orders.id %>">
+    <%= orders.created_at.strftime("%F %T") %>
+  </td>
+  <td class="text-center" data-toggle="modal" data-target="#modal_data_row_<%= orders.id %>">
+    <%= orders.id %>
+  </td>
+  <td class="text-center" data-toggle="modal" data-target="#modal_data_row_<%= orders.id %>">
+    <%= orders.name %>
+  </td>
+  <td class="text-center" data-toggle="modal" data-target="#modal_data_row_<%= orders.id %>">
+    <%= orders.address %>
+  </td>
+  <td class="text-center" data-toggle="modal" data-target="#modal_data_row_<%= orders.id %>">
+    <%= orders.phone %>
+  </td>
+  <td class="text-center" data-toggle="modal" data-target="#modal_data_row_<%= orders.id %>">
+    <%= orders.totalPrice %>
+  </td>
+  <td class="text-center current_status_ajax_<%= orders.id %>">
+    <%= label_order_status orders.status %>
+  </td>
+  <td class="text-center">
+    <div class="btn-group">
+      <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Status
+      </button>
+      <div class="dropdown-menu">
+        <span class="badge badge-secondary status_process_admin"
+          id="status_process_admin_0 <%= orders.id %>">Pending</span><br>
+        <span class="badge badge-warning status_process_admin"
+          id="status_process_admin_1 <%= orders.id %>">Processing</span><br>
+        <span class="badge badge-success status_process_admin"
+          id="status_process_admin_2 <%= orders.id %>">Success</span><br>
+        <span class="badge badge-info status_process_admin"
+          id="status_process_admin_3 <%= orders.id %>">Transfering</span><br>
+        <span class="badge badge-danger status_process_admin"
+          id="status_process_admin_4 <%= orders.id %>">Cancel</span><br>
+      </div>
+    </div>
+  </td>
+</tr>
+
+<%= render partial: "modal_order_data", locals: {orders: orders} %>

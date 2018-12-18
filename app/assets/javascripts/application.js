@@ -17,3 +17,5 @@
 //= require i18n/translations
 //= require jquery
 //= require bootstrap-sprockets
+//= require social-share-button
+//= require social-share-button/wechat
