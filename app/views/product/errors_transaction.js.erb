@@ -1,0 +1,13 @@
+<% if @product.present? %>
+  <% @product.errors.full_messages.each do |msg| %>
+    $(".errors-form-product-admin").append(`<li><%= msg %></li>`)
+  <% end %>
+<% end %>
+
+<% if @image.present? %>
+  <% @image.errors.full_messages.each do |msg| %>
+    $(".errors-form-product-admin").append(`<li><%= msg %></li>`)
+  <% end %>
+<% end %>
+
+$(".errors-form-product-admin li").fadeOut(3000);

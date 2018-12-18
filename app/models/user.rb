@@ -1,62 +1,52 @@
 class User < ApplicationRecord
-  before_save :downcase_email
+  devise :database_authenticatable, :registerable, :rememberable, :validatable,
+    :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
+  has_many :orders
+  has_many :ranks
 
-  attr_accessor :remember_token
+  paginates_per Settings.admin.user_per_page
+
+  scope :sort_by_newest, ->{order("created_at desc")}
+
+  attr_accessor :remember_token, :social_active
 
   mount_uploader :profile_img, AvatarUploader
 
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
-  validates :name, presence: true,
-    length: {maximum: Settings.validates.user.name.length.maximum}
-  validates :email, presence: true,
-    length: {maximum: Settings.validates.user.email.length.maximum},
-    format: {with: VALID_EMAIL_REGEX},
-    uniqueness: {case_sensitive: false}
-  validates :phone, presence: true,
-    length: {minimum: Settings.validates.user.phone.length.minimum},
-    uniqueness: {case_sensitive: false}
-  has_secure_password
-  validates :password, presence: true,
-    length: {minimum: Settings.validates.user.password.length.minimum},
-    allow_nil: true
+  enum role: [:admin, :staff, :deliver, :customer]
 
   validate :profile_size
 
-  def remember
-    self.remember_token = User.new_token
-    update_attribute :remember_digest, User.digest(remember_token)
-  end
-
-  def authenticated? token
-    return false if remember_digest.nil?
-    BCrypt::Password.new(remember_digest).is_password?(token)
-  end
-
-  def forget
-    update_attribute :remember_digest, nil
-  end
-
   class << self
-    def digest string
-      min_cost = ActiveModel::SecurePassword.min_cost
-      cost = min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
-      BCrypt::Password.create string, cost: cost
+    def admin?
+      return true if role == "admin"
+      false
     end
 
-    def new_token
-      SecureRandom.urlsafe_base64
+    def new_with_session params, session
+      super.tap do |user|
+        if data = session["devise.facebook_data"] &&
+          session["devise.facebook_data"]["extra"]["raw_info"]
+          user.email = data["email"] if user.email.blank?
+        end
+      end
+    end
+
+    def from_omniauth auth
+      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+        user.email = auth.info.email
+        user.password = Devise.friendly_token[0,20]
+        user.name = auth.info.name
+        user.social_img = auth.info.image
+        user.social_active = true
+      end
     end
   end
 
   private
 
-  def downcase_email
-    email.downcase!
-  end
-
   # Validates the size of an uploaded picture.
   def size_notify
-    errortext = I18n.t "layouts.erros.userlogin.updatingform.avatarsize"
+    errortext = I18n.t("layouts.errors.userlogin.updatingform.avatarsize")
     errors.add(:profile_img, errortext)
   end
 
