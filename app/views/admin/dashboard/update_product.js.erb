@@ -1,0 +1,6 @@
+<% @product.errors.full_messages.each do |msg| %>
+  $(".errors-form-product-admin").append(`<li><%= msg %></li>`)
+<% end %>
+
+$(".errors-form-product-admin li").delay(2000).fadeOut(300);
+

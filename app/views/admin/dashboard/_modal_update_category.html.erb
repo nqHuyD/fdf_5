@@ -1,0 +1,52 @@
+<div class="modal fade" id="tooltip_edit_category_<%= @category.id %>" tabindex="-1"
+  role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="mediumModalLabel">Updating Form</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="card-body">
+          <div class="errors-form-category-update-admin errorsform"></div>
+          <div class="success-form-category-update"></div>
+          <%= form_for :category, url: admin_path(@category.id), method: :post,
+            remote: true do |f| %>
+            <h4><%= f.label :name, "Category Name" %></h4>
+            <%= f.text_field :name, placeholder: @category.name, class: "form-control" %>
+            <br>
+            <h4><i class="fa fa-coffee"><%= f.label :type_food, "Type" %></i></h4>
+            <%= f.radio_button :type_food,"food" ,class: "form-check-label",
+              checked: @category.type_food == "food" %>
+              <i class="fa">Food</i>
+            <br>
+            <%= f.radio_button :type_food,"drink",class: "form-check-label",
+            checked: @category.type_food == "drink" %>
+              <i class="fa">Drink</i>
+            <br><br>
+            <h4><i class="fa fa-bolt"><%= f.label :status, "Status" %></i></h4>
+            <%= f.radio_button :status,"new_stuff",class: "form-check-label",
+              checked: @category.status == "new_stuff" %>
+              <i class="fa">New Stuff</i><br>
+            <%= f.radio_button :status,"fresh",class: "form-check-label",
+              checked: @category.status == "fresh" %>
+              <i class="fa">Fresh</i><br>
+            <%= f.radio_button :status,"trending",class: "form-check-label",
+              checked: @category.status == "trending" %>
+              <i class="fa">Trending</i><br>
+            <%= f.radio_button :status,"most_favorite",class: "form-check-label",
+             checked: @category.status == "most_favorite" %>
+             <i class="fa">Most Favorite</i>
+            <br><br>
+            <%= f.submit class: "btn btn-warning btn-sm 111111" do %>
+              <i class="fa fa-dot-circle-o"></i> Update
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
