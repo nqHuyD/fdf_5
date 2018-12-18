@@ -5,6 +5,7 @@ class UserController < ApplicationController
     @user = User.new user_params
     if @user.save
       flash[:success] = t "layouts.notification.flash.success.signup"
+      log_in @user
       redirect_to root_path
     else
       respond_to do |format|

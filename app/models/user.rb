@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  has_many :orders
+  has_many :ranks
+
   before_save :downcase_email
 
   attr_accessor :remember_token

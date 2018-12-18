@@ -1,0 +1,3 @@
+$(".rating_<%= @product.id %>").html(`
+  <%= render partial: "product/ranking_product",locals: {product: @product} %>
+`)
