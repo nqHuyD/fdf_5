@@ -1,0 +1,10 @@
+$(".errors-form-product-admin").append(`
+  <% if session[:category_product].blank? %>
+    <li>Please choice Category</li>
+  <% end %>
+  <% if @food_images.blank? %>
+    <li>Please insert Images</li>
+  <% end %>
+`)
+
+$(".errors-form-product-admin li").fadeOut(2000)

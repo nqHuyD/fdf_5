@@ -1,0 +1,18 @@
+<%- if controller_name != "sessions" %>
+  <%= link_to t("layouts.user_login.login"), new_session_path(resource_name),
+    class: "btn btn-warning" %><br />
+<% end -%>
+
+<%- if devise_mapping.registerable? && controller_name != "registrations" %>
+  <%= link_to "Sign up", new_registration_path(resource_name),
+  class: "btn btn-info" %><br />
+<% end -%>
+
+<%- if devise_mapping.omniauthable? %>
+  <%= link_to t("devise.login.facebook"),
+    omniauth_authorize_path(resource_name, :facebook),
+    class: "loginBtn loginBtn--facebook" %><br />
+  <%= link_to t("devise.login.google"),
+    omniauth_authorize_path(resource_name, :google_oauth2),
+    class: "loginBtn loginBtn--google"  %><br />
+<% end -%>

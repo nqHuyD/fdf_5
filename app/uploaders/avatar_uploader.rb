@@ -14,4 +14,8 @@ class AvatarUploader < CarrierWave::Uploader::Base
   def extension_whitelist
     %w(jpg jpeg gif png)
   end
+
+  def default_url
+    "avatar_default.png"
+  end
 end

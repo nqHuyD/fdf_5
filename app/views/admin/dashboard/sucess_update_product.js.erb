@@ -1,0 +1,11 @@
+$(".render_row_product_ajax").html(`
+  <% @product_data.each do |products| %>
+    <%= render_product_row products %>
+  <% end %>
+`)
+
+$(".success-form-product-update").html(`
+  <span>Update Successful</span>
+`)
+
+$(".success-form-product-update span").fadeOut(2000)

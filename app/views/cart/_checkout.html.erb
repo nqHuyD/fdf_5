@@ -1,0 +1,41 @@
+<div class="checkout checkout-cart-ajax">
+  <div class="container">
+    <h3>
+      <%= raw(t("layouts.cart.checkout.contain",product: current_cart_length)) %>
+    </h3>
+    <div class="checkout-right">
+      <table class="timetable_sub">
+        <thead>
+          <tr>
+            <th><%= t("layouts.cart.checkout.table.numberid") %></th>
+            <th><%= t("layouts.cart.checkout.table.image") %></th>
+            <th><%= t("layouts.cart.checkout.table.quantity") %></th>
+            <th><%= t("layouts.cart.checkout.table.name") %></th>
+            <th><%= t("layouts.cart.checkout.table.unit") %></th>
+            <th><%= t("layouts.cart.checkout.table.total") %></th>
+            <th><%= t("layouts.cart.checkout.table.remove") %></th>
+          </tr>
+        </thead>
+          <% for i in 0..current_cart_length-1 %>
+            <% product = find_product current_cart[i] %>
+            <% if product.present? %>
+              <%= render partial: "product_in_cart", locals: {item: i, product: product} %>
+            <% end %>
+          <% end %>
+        </div>
+      </table>
+    </div>
+    <div class="checkout-left">
+      <%= render "basket" %>
+      <div class="checkout-right-basket">
+        <%= link_to product_index_path do %>
+          <span class="fa fa-shopping-cart" aria-hidden="true">
+          </span>
+          <%= t("layouts.cart.checkout.continue") %>
+        <% end %>
+      </div>
+      <div class="clearfix"> </div>
+    </div>
+  </div>
+  <%= javascript_include_tag("cart_checkout.js") %>
+</div>

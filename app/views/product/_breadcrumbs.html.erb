@@ -1,0 +1,14 @@
+<div class="serach_from_product">
+  <div class="search">
+    <input class="search_box" type="checkbox" id="search_box">
+    <label class="icon-search" for="search_box"><span
+      class="fa fa-search" aria-hidden="true"></span></label>
+    <div class="search_form">
+      <%= search_form_for @q, url: product_index_path do |f| %>
+        <%= f.label t "layouts.product.search.name" %>
+        <%= f.text_field :name_cont %>
+        <%= f.submit t "layouts.product.search.submit" %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+$(".read_tr_<%= params[:active_id]%>").html(`
+  <% if @activities.read.present? %>
+    Unseen
+  <% else %>
+    Seen
+  <% end %>
+`)
+
+$(".container-bell").html(`
+  <%= link_to "", admin_notify_data_path, class:"notification show-count notify",
+    data:{count: activities_count} %>
+`)

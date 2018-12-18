@@ -1,0 +1,5 @@
+$(".render_row_product_ajax").html(`
+  <% Product.all.each do |products| %>
+    <%= render_product_row products %>
+  <% end %>
+`)

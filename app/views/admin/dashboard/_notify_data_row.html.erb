@@ -1,0 +1,15 @@
+<div class="notification_admin">
+  <%= render_profile_img @user %>
+  <%= @user_name %> did <span><%= @action %></span>
+  <%= @order_id.nil? ? "User Data" : "with Order ID is: <b>#{@order_id}</b>".html_safe %>...
+  <%= @active_day %> ago <%= label_image_activity @action %>
+  <br>
+
+  <button class="read-trigger read_tr_<%=@active_id%>">
+    <% if @read.present? %>
+      Unseen
+    <% else %>
+      Seen
+    <% end %>
+  </button>
+ </div>
