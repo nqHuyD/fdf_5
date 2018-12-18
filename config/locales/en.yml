@@ -28,7 +28,6 @@
 #
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
-
 en:
   layouts:
     header:
@@ -43,6 +42,7 @@ en:
       about: "About Us"
       mail: "Mail Us"
       empty: "Empty Cart"
+      store: "<i>Food Store</i>"
     home:
       banner:
         title: "Foods fade,"
@@ -76,6 +76,55 @@ en:
       breadcum:
         home: "Home"
         title: "Mail Us"
+    product:
+      banner:
+        title: "<h2>Food Deals<span>up to</span>40% <i>Discount</i></h2>"
+      breadcum:
+        home: "Home"
+        title: "Foods"
+      category:
+        title: "Zekii Menu"
+        food: "Food Category"
+        drink: "Drink Category"
+        sort:
+          default: "Default Sorting"
+          alphaaz: "Sort by alphabet A to Z"
+          alphaza: "Sort by alphabet Z to A"
+          pricelh: "Sort by Price low to high"
+          pricehl: "Sort by Price high to low"
+          rating: "Sort by average Rating"
+        count: "Having <b>%{result}</b> product now"
+        menu:
+          food:
+            fastfood: "Fast food"
+            chocolate: "Chocolate"
+            salads: "Salads"
+            sandwiches: "Sandwiches"
+            koreanfood: "Korean Food"
+            japanfood: "Japan Food"
+            desserts: "Desserts"
+          drink:
+            soda: "Soda"
+            fruitdrink: "Fruit Drink"
+            milktea: "Milk Tea"
+            coffee: "Coffee"
+            tea: "Tea"
+      related:
+        title: "Related Product"
+        record:
+          priceunit: "$ %{price}"
+          addcart: "Add To Cart"
+      single:
+        description: "Description"
+        quantity: "Quantity"
+        size:
+          title: "Size"
+          medium: "M"
+          large: "L"
+          xlarge: "XL"
+        information: "Product Information"
+        review: "Reviews"
+        reviews: "(%{count}) Reviews"
     footer:
       contact:
         title: "Contact"
@@ -99,12 +148,17 @@ en:
         author: "Zekii"
     userlogin:
       title: "Don't Wait, Login now!"
+      welcome: "Welcome %{name} to Zekii Food"
       signin: "Sign In"
       signup: "Sign Up"
+      show: "Profile"
+      update: "Edit Profile"
+      logout: "Log Out"
       siginform:
         email: "Email"
         pass: "Password"
         submit: "Submit"
+        remember: "Remember Me"
       signupform:
         name: "Name"
         pass: "Password"
@@ -112,8 +166,29 @@ en:
         email: "Email"
         phone: "Number Phone"
         submit: "Create Account"
+      showingform:
+        name: "User Name :"
+        email: "Email :"
+        phone: "Phone Number:"
+      updatingform:
+        name: "Your Name"
+        email: "Your Email"
+        phone: "Your Phone"
+        password: "Password"
+        image: "Profile Image"
+        confirm: "Password Confirmation"
+        submit: "Save Changes"
+      logoutform:
+        title: "Do you really want to log out ?"
       placeholder:
         name: "Name User"
         email: "Email Address"
         pass: "Password"
         confirm: "Password Confirmation"
+    errors:
+      userlogin:
+        updatingform:
+          avatarsize: "should be less than 2MB"
+      prodcuts:
+        foodimages:
+          imagesize: "should be less than 3MB"
