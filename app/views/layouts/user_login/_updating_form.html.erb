@@ -1,0 +1,29 @@
+<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
+  <div class="facts">
+    <div class="register">
+      <%= form_for :user, url: user_path(current_user.id), html: {method: "patch"}, remote: true do |f| %>
+        <div class="errorsform errors-updating-form">
+
+        </div>
+        <%= f.label :name, t("layouts.user_login.updatingform.name") %>
+        <%= f.text_field :name, placeholder: current_user.name, value: current_user.name %>
+
+        <%= f.label :password, t("layouts.user_login.updatingform.password") %>
+        <%= f.password_field :password, placeholder: t("layouts.user_login.placeholder.pass") %>
+
+        <%= f.label :password_confirmation, t("layouts.user_login.updatingform.confirm") %>
+        <%= f.password_field :password_confirmation, placeholder: t("layouts.user_login.placeholder.confirm")%>
+
+        <%= f.label :email, t("layouts.user_login.updatingform.email") %>
+        <%= f.email_field :email, placeholder: current_user.email, value: current_user.email %>
+
+        <%= f.label :phone, t("layouts.user_login.updatingform.phone") %><br/>
+        <%= f.telephone_field :phone, placeholder: current_user.phone, value: current_user.phone %>
+
+        <div class="sign-up">
+          <%= f.submit t("layouts.user_login.updatingform.submit") %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -10,6 +10,9 @@ class User < ApplicationRecord
     length: {maximum: Settings.validates.user.email.length.maximum},
     format: {with: VALID_EMAIL_REGEX},
     uniqueness: {case_sensitive: false}
+  validates :phone, presence: true,
+    length: {minimum: Settings.validates.user.phone.length.minimum},
+    uniqueness: {case_sensitive: false}
   has_secure_password
   validates :password, presence: true,
     length: {minimum: Settings.validates.user.password.length.minimum},
@@ -22,7 +25,11 @@ class User < ApplicationRecord
 
   def authenticated? token
     return false if remember_digest.nil?
-    BCrypt::Password.new(digest).is_password?(token)
+    BCrypt::Password.new(remember_digest).is_password?(token)
+  end
+
+  def forget
+    update_attribute :remember_digest, nil
   end
 
   class << self

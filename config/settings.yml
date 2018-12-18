@@ -9,5 +9,8 @@ validates:
     email:
       length:
         maximum: 30
-    session:
-      remember: 1
+    phone:
+      length:
+        minimum: 10
+    sessions:
+      remember: "1"
