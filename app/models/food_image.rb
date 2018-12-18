@@ -6,7 +6,7 @@ class FoodImage < ApplicationRecord
   validate :foodimage_size
 
   def size_notify
-    errortext = I18n.t "layouts.erros.prodcuts.foodimages.imagesize"
+    errortext = I18n.t "layouts.errors.prodcuts.foodimages.imagesize"
     errors.add(:picture, errortext)
   end
 

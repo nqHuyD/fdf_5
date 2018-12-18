@@ -1,0 +1,6 @@
+<% @category.errors.full_messages.each do |msg| %>
+  $(".errors-form-category-admin").append(`<li><%= msg %></li>`)
+<% end %>
+
+$(".errors-form-category-admin li").delay(3200).fadeOut(300);
+

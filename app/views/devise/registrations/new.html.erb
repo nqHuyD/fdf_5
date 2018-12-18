@@ -1,0 +1,23 @@
+<div class="devise_form_login">
+  <h2><%= t "layouts.user_login.signup" %></h2>
+  <%= simple_form_for resource, as: resource_name, url: registration_path(resource_name),
+  defaults: {input_html: {class: "form-control"}, wrapper_html: {class: "form-group"}} do |f| %>
+    <%= devise_error_messages! %>
+    <br>
+      <%= f.input :email, autofocus: true %>
+
+      <%= f.input :name %>
+
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.input :password, autocomplete: "off" %>
+
+      <%= f.input :password_confirmation, autocomplete: "off" %>
+
+      <%= f.input :phone %>
+
+      <%= f.button :submit, class: "btn btn-info", wrapper_html: {class: "actions"} %>
+  <% end %>
+  <%= render "devise/shared/links" %>
+</div>

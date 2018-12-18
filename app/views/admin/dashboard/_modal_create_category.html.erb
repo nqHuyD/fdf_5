@@ -1,0 +1,36 @@
+<div class="modal fade" id="modal_create_category_row" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="mediumModalLabel">Adding Form</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="card-body">
+          <div class="errors-form-category-admin errorsform"></div>
+          <%= form_for :category, url: category_index_path, remote: true do |f| %>
+            <h4><%= f.label :name, "Category Name" %></h4>
+            <%= f.text_field :name, placeholder: "Input Category Name ...", class: "form-control" %>
+            <br>
+            <h4><i class="fa fa-coffee"><%= f.label :type_food, "Type" %></i></h4>
+            <%= f.radio_button :type_food,"food" ,class: "form-check-label " %><i class="fa">Food</i><br>
+            <%= f.radio_button :type_food,"drink",class: "form-check-label " %><i class="fa">Drink</i>
+            <br><br>
+            <h4><i class="fa fa-bolt"><%= f.label :status, "Status" %></i></h4>
+            <%= f.radio_button :status,"new_stuff",class: "form-check-label " %><i class="fa">New Stuff</i><br>
+            <%= f.radio_button :status,"fresh",class: "form-check-label " %><i class="fa">Fresh</i><br>
+            <%= f.radio_button :status,"trending",class: "form-check-label " %><i class="fa">Trending</i><br>
+            <%= f.radio_button :status,"most_favorite",class: "form-check-label " %><i class="fa">Most Favorite</i>
+            <br><br>
+            <button type="submit" class="btn btn-info btn-sm">
+              <i class="fa fa-dot-circle-o"></i> Submit
+            </button>
+          <% end %>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
