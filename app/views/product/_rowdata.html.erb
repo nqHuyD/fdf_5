@@ -1,0 +1,39 @@
+<div class="w3ls_dresses_grid_right_grid3">
+<% count = 0 %>
+<% case filter.to_i %>
+  <% when Settings.food.filter.alphaaz %>
+    <% products = Product.order(:name)%>
+  <% when Settings.food.filter.alphaza %>
+    <% products = Product.order("name DESC") %>
+  <% when Settings.food.filter.pricelh%>
+    <% products = Product.order(:price) %>
+  <% when Settings.food.filter.pricehl%>
+    <% products = Product.order("price DESC") %>
+  <% else %>
+    <% products = Product.all %>
+<% end %>
+<% products.each do |item| %>
+  <% if category.nil? %>
+    <% count += 1 %>
+    <% if count == 3 %>
+      <% count = 0 %>
+      <%= render partial: "record", locals: {product: item} %>
+      <div class="clearfix"></div>
+      </div>
+      <div class="w3ls_dresses_grid_right_grid3">
+    <% else %>
+      <%= render partial: "record", locals: {product: item} %>
+    <% end %>
+  <% else %>
+    <% count += 1 %>
+    <% if count == 3 && item.category == category%>
+      <%= render partial: "record", locals: {product: item} %>
+      <div class="clearfix"></div>
+      </div>
+      <div class="w3ls_dresses_grid_right_grid3">
+    <% elsif item.category == category %>
+      <%= render partial: "record", locals: {product: item} %>
+    <% end %>
+  <% end %>
+<% end %>
+

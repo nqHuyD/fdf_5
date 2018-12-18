@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :phone
       t.string :profile_img
       t.integer :role
+      t.string :remember_digest
 
       t.timestamps
     end

@@ -19,7 +19,7 @@
           <h6><%= t("layouts.home.header.drink") %></h6>
           <li><a href="salwars.html">Milk Tea</a></li>
           <li><a href="sarees.html">Coffee<span>New</span></a></li>
-          <li><a href="products.html"><i>Summer Deal</i></a></li>
+          <li><%= link_to raw(t("layouts.header.store")), product_index_path %></li>
         </ul>
       </div>
       <div class="col-sm-2">
