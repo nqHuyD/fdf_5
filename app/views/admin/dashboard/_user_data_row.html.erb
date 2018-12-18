@@ -1,0 +1,62 @@
+<tbody class="user_row_data_ajax_<%= users.id %>">
+  <td><%= users.id %></td>
+  <td>
+    <div class="table-data__info">
+        <h6><%= users.name %></h6>
+        <span>
+            <a href="#"><%= users.email %></a>
+        </span>
+    </div>
+  </td>
+  <!-- Calling Ajax when change the User Role -->
+  <td class="current_role_ajax_<%= users.id %>">
+    <%= label_role_user users.role %>
+  </td>
+  <td>
+    <div class="btn btn-group">
+      <div type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Role
+      </div>
+      <div class="dropdown-menu">
+        <span class="badge badge-warning role_scroll" id="role_scroll_1 <%= users.id %>">Admin</span><br>
+        <span class="badge badge-primary role_scroll" id="role_scroll_2 <%= users.id %>">Staff</span><br>
+        <span class="badge badge-light role_scroll" id="role_scroll_3 <%= users.id %>">Deliver</span><br>
+        <span class="badge badge-success role_scroll" id="role_scroll_4 <%= users.id %>">Customer</span>
+      </div>
+    </div>
+  </td>
+  <td class="current_active_users_ajax_<%= users.id %>">
+    <%= label_active users.active %>
+  </td>
+  <td>
+    <div class="btn btn-group">
+      <div type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Status
+      </div>
+      <div class="dropdown-menu">
+        <span class="badge badge-success role_scroll_active_users" id="users_active_1_<%= users.id %>"
+          value="true">
+          Active
+        </span><br>
+        <span class="badge badge-danger role_scroll_active_users" id="users_active_2_<%= users.id %> "
+          value="false">
+          Not Active
+        </span><br>
+      </div>
+    </div>
+  </td>
+  <td>
+    <button type="button" class="btn-primary btn-sm" data-toggle="modal"
+      data-target="#modal_data_user_<%= users.id %>">
+      <i class="fa fa-eye">
+      </i> Show
+    </button>
+  </td>
+  <td>
+    <button type="button" class="btn-danger btn-sm admin-delete-users <%= users.id %>">
+      <i class="fa fa-trash">
+      </i> Delete
+    </button>
+  </td>
+<%= render partial: "modal_user_data", locals: {users: users} %>
+</tbody>

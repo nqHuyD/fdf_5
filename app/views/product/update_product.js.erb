@@ -1,0 +1,3 @@
+<% @product.errors.full_messages.each do |msg| %>
+  $(".errors-form-product-admin").append(`<li><%= msg %></li>`)
+<% end %>

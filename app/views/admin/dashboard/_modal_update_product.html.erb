@@ -1,0 +1,38 @@
+<div class="modal fade" id="tooltip_edit_product_<%= @products.id %>" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="mediumModalLabel">Updating Product ID: <%= @products.id %></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="card-body">
+          <div class="errors-form-product-admin errorsform"></div>
+          <div class="success-form-product-update"></div>
+          <%= form_for :product, url: admin_admin_update_product_path(@products.id), method: :patch, remote: true do |f| %>
+            <h4><%= f.label :name, "Product Name" %></h4>
+            <%= f.text_field :name, value: @products.name, class: "form-control" %>
+            <br>
+
+            <h4><%= f.label :inventory, "Inventory" %></h4>
+            <%= f.number_field :inventory, value: @products.inventory, class: "form-control" %>
+            <br>
+
+            <h4><%= f.label :price, "Price $$$" %></h4>
+            <%= f.number_field :price,  value: @products.price, class: "form-control" %>
+            <br>
+
+            <h4><%= f.label :description, "Description" %></h4>
+            <%= f.text_area :description, value: @products.description, class: "form-control" %>
+            <br>
+            <%= f.submit class: "btn btn-warning btn-sm" do %>
+              <i class="fa fa-dot-circle-o"></i> Update
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
