@@ -2,8 +2,8 @@
 <div class="header">
   <div class="container">
     <div class="w3l_login">
-      <%= link_to "#", data: {toggle: "modal", target: "#myModal88"} do %>
-        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+      <%= link_to "#", data: {toggle: "modal", target: "#myModal88"},class: "fa fa-user" do %>
+        <span aria-hidden="true"></span>
       <% end %>
     </div>
     <div class="w3l_logo">
@@ -26,18 +26,16 @@
       </div>
     </div>
     <div class="cart box_1">
-      <%= link_to "checkout.html" do %>
-        <div class="total">
-          <span class="simpleCart_total"></span>
+      <%= link_to cart_index_path do %>
+        <div class="total cart-header">
+          <span class="simpleCart_total">
+            <%= t("layouts.header.priceunit", price: current_cart_total) %>
+          </span>
             (<span id="simpleCart_quantity"
-            class="simpleCart_quantity"></span> items
-        )</div>
+            class="simpleCart_quantity"><%= current_cart_length %>
+            </span><%= t("layouts.header.items") %>)</div>
         <%= image_tag("header/bag.png", alt: "") %>
       <% end %>
-      <p>
-        <%= link_to t("layouts.header.empty"), "javascript:;",
-          class: "simpleCart_empty" %>
-      </p>
       <div class="clearfix"> </div>
     </div>
     <div class="clearfix"> </div>

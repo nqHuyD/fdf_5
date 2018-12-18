@@ -6,26 +6,26 @@
 
     <%= stylesheet_link_tag    "application", media: "all",
       "data-turbolinks-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbolinks-track":
-      "reload" %>
+
 
     <link href="//fonts.googleapis.com/css?family=Glegoo:400,700"
       rel="stylesheet" type="text/css">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,
       400italic,600,600italic,700,700italic,800,800italic" rel="stylesheet"
       type="text/css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <%= javascript_include_tag "application", "data-turbolinks-track":
+      "reload" %>
     <!-- start-smooth-scrolling -->
-    <script type="text/javascript">
-      jQuery(document).ready(function($) {
+      <script type="text/javascript">
+        jQuery(document).ready(function($) {
         $(".scroll").click(function(event){
           event.preventDefault();
           $("html,body").animate({scrollTop:$(this.hash).offset().top},1000);
         });
-      });
-    </script>
+        });
+      </script>
     <!-- //end-smooth-scrolling -->
-
   </head>
 
   <body>
@@ -39,9 +39,6 @@
     </div>
 
     <%= yield %>
-
-    <!-- newsletter -->
-    <%= render "layouts/new_letter" %>
 
     <!-- footer -->
     <%= render "layouts/footer" %>
