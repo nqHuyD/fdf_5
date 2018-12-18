@@ -22,7 +22,7 @@ validates:
   food:
     name:
       length:
-        maximum: 25
+        maximum: 40
     description:
       length:
         maximum: 100
@@ -54,3 +54,4 @@ admin:
   user_per_page: 4
   order_per_page: 8
   category_per_page: 6
+  product_per_page: 5

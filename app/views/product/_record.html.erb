@@ -10,13 +10,13 @@
         <ul>
           <li>
             <a href="#" data-toggle="modal" data-target="#myModal<%= product.id %>">
-              <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+              <span class="fa fa-eye" aria-hidden="true"></span>
             </a>
           </li>
         </ul>
       </div>
     </div>
-    <h5><%= link_to product.category, product_path(product.id) %></a></h5>
+    <h5><%= link_to product.name, product_path(product.id) %></a></h5>
     <div class="simpleCart_shelfItem">
       <p><i class="item_price"></i>
         <%= t("layouts.product.related.record.priceunit", price: product.price) %>

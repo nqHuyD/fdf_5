@@ -18,7 +18,14 @@
             <% end %>
           </div>
           <div class="col-md-6 modal_body_right">
-            <h4><%= product.category %></h4>
+            <h4>
+              <%= product.name %>
+            </h4>
+            <h5>Category:</h5>
+            <% product.product_categorys.each do |category| %>
+              <span><%= Category.find_by(id: category.category_id).name %></span>
+            <% end %>
+            <h5>Description:</h5>
             <p><%= product.description %></p>
             <div class="modal_body_right_cart simpleCart_shelfItem">
               <p><i class="item_price">

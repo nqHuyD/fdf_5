@@ -9,9 +9,9 @@ var touch = 0
 var remember = 0
 
 // Filter Category
-$(".category-food-ul a").click(function(e){
-  remember = 0
-  category = e.target.firstChild.data
+$(".category_type_choice").click(function(){
+  var attr = $(this).attr("class");
+  category = attr.slice(21,attr.length)
   $.ajax({
     url: "/product/category",
     type: "POST",
@@ -76,6 +76,7 @@ $(".fa_star_filter").click(function(){
 })
 
 $(".all_rank_filter").click(function(){
+  $(".fa_star_filter").removeClass("fachecked");
   $.ajax({
     url: "/product/rank",
     type: "POST",

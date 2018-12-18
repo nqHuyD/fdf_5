@@ -1,0 +1,9 @@
+$(".box_product_category").html(`
+  <% session[:category_product].each do |category_id| %>
+    <%= render_category_box_data category_id %>
+  <% end %>
+`)
+
+$(".admin_product_destroy_ajax").html(`
+  <%= javascript_include_tag "admin_javascript/product_admin_destroy_data.js" %>
+`)

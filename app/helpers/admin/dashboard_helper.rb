@@ -125,4 +125,35 @@ module Admin::DashboardHelper
       category.where(status: "most_favorite")
     end
   end
+
+  #ProductData Part
+  def render_product_row products
+    @products = products
+    render partial: "product_data_row"
+  end
+
+  def label_status_product status
+    case status
+    when nil
+      render html: '<span class="badge badge-secondary">
+       None-Status</span>'.html_safe
+    when "new_stuff"
+      render html: '<span class="badge badge-warning">
+        New Stuff </span>'.html_safe
+    when "best_sell"
+      render html: '<span class="badge badge-success">
+        Staff </span>'.html_safe
+    when "stunning"
+      render html: '<span class="badge badge-info">
+        Deliver </span>'.html_safe
+    when "high_rate"
+      render html: '<span class="badge badge-danger">
+        Customer </span>'.html_safe
+    end
+  end
+
+  def render_category_box_data category
+    @category_data =  Category.find_by id: category.to_i
+    render partial: "category_product_box_data"
+  end
 end

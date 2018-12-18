@@ -1,5 +1,8 @@
 <tr class="tr-shadow category_data_row_<%= @category.id %>">
   <td class="desc">
+    <%= @category.id %>
+  </td>
+  <td class="desc">
     <%= @category.name %>
   </td>
   <td>
@@ -23,6 +26,6 @@
           </button>
       </div>
   </td>
+<%= render partial: "modal_update_category" %>
 </tr>
 <tr class="spacer"></tr>
-<%= render partial: "modal_update_category" %>

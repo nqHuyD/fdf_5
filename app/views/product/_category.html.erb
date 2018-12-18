@@ -10,20 +10,17 @@
                 <div class="panel-heading" role="tab" id="headingOne">
                   <h4 class="panel-title asd">
                   <a class="pa_italic" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                      <i class="glyphicon glyphicon-minus" aria-hidden="true"></i><%= t(".food") %>
+                    <span class="fa fa-plus" aria-hidden="true"></span>
+                      <i class="fa fa-minus" aria-hidden="true"></i><%= t(".food") %>
                   </a>
                   </h4>
                 </div>
                 <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                   <div class="panel-body panel_text">
                   <ul class="category-food-ul">
-                    <li><a><%= t("layouts.product.category.menu.food.fastfood") %></a></li>
-                    <li><a><%= t("layouts.product.category.menu.food.chocolate") %></a></li>
-                    <li><a><%= t("layouts.product.category.menu.food.salads") %></a></li>
-                    <li><a><%= t("layouts.product.category.menu.food.koreanfood") %></a></li>
-                    <li><a><%= t("layouts.product.category.menu.food.japanfood") %></a></li>
-                    <li><a><%= t("layouts.product.category.menu.food.desserts") %></a></li>
+                    <% Category.where(type_food: "food").each do |category| %>
+                      <li><a class="category_type_choice <%= category.id %>"><%= category.name %></a></li>
+                    <% end %>
                   </ul>
                   </div>
                 </div>
@@ -32,19 +29,17 @@
                 <div class="panel-heading" role="tab" id="headingTwo">
                   <h4 class="panel-title asd">
                   <a class="pa_italic collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                    <i class="glyphicon glyphicon-minus" aria-hidden="true"></i><%= t(".drink") %>
+                    <span class="fa fa-plus" aria-hidden="true"></span>
+                    <i class="fa fa-minus" aria-hidden="true"></i><%= t(".drink") %>
                   </a>
                   </h4>
                 </div>
                 <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                    <div class="panel-body panel_text">
                   <ul class="category-food-ul">
-                    <li><a><%= t("layouts.product.category.menu.drink.soda") %></a></li>
-                    <li><a><%= t("layouts.product.category.menu.drink.fruitdrink") %></a></li>
-                    <li><a><%= t("layouts.product.category.menu.drink.milktea") %></a></li>
-                    <li><a><%= t("layouts.product.category.menu.drink.coffee") %></a></li>
-                    <li><a><%= t("layouts.product.category.menu.drink.tea") %></a></li>
+                    <% Category.where(type_food: "drink").each do |category| %>
+                      <li><a class="category_type_choice <%= category.id %>"><%= category.name %></a></li>
+                    <% end %>
                   </ul>
                   </div>
                 </div>

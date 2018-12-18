@@ -7,18 +7,7 @@ class CategoryController < ApplicationController
       status: category_params[:status], type_food: category_params[:type_food]
    if @category.save
     flash[:success] = t "layouts.notification.flash.success.category"
-    redirect_to admin_category_data_path
-    else
-      respond_to do |format|
-        format.js
-      end
-    end
-  end
-
-  def update
-    if @category.update_attributes category_params
-      flash[:success] = t "layouts.notification.flash.success.categoryUpdate"
-      redirect_to admin_category_data_path
+    redirect_to admin_category_data_url
     else
       respond_to do |format|
         format.js
@@ -27,9 +16,23 @@ class CategoryController < ApplicationController
   end
 
   def destroy
-    @category.destroy
-    respond_to do |format|
-      format.js
+    ActiveRecord::Base.transaction do
+      begin
+
+        # Delete ProductCategory Rows that having @category data
+        ProductCategory.where(category_id: @category.id).each do |category|
+          category.destroy
+        end
+
+        # Delete Category Rows that having @category data
+        @category.destroy
+      rescue
+        flash[:warning] = "Can not Delete this data"
+        redirect_to admin_category_data_url
+      end
+      respond_to do |format|
+        format.js
+      end
     end
   end
 

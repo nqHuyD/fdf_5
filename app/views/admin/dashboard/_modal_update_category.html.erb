@@ -11,7 +11,8 @@
       <div class="modal-body">
         <div class="card-body">
           <div class="errors-form-category-update-admin errorsform"></div>
-          <%= form_for :category, url: category_path(@category.id), method: :patch,
+          <div class="success-form-category-update"></div>
+          <%= form_for :category, url: admin_path(@category.id), method: :post,
             remote: true do |f| %>
             <h4><%= f.label :name, "Category Name" %></h4>
             <%= f.text_field :name, placeholder: @category.name, class: "form-control" %>

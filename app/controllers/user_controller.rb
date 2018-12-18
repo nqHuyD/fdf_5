@@ -35,11 +35,25 @@ class UserController < ApplicationController
   end
 
   def destroy
-    @users.destroy
-    respond_to do |format|
-      format.js
+     ActiveRecord::Base.transaction do
+      begin
+
+        # Delete Rank Rows that having @user data
+        Rank.where(product_id: @users.id).each do |rank|
+          rank.destroy
+        end
+
+        @users.destroy
+      rescue
+        flash[:warning] = "Data has the order so can not Delete"
+        return redirect_to admin_user_data_path
+      end
+      respond_to do |format|
+        format.js
+      end
     end
   end
+
   private
 
   def user_params

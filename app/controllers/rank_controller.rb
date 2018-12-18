@@ -28,7 +28,6 @@ class RankController < ApplicationController
       update_average_rank
     end
 
-
     respond_to do |format|
       format.js {render "create.js.erb"}
     end

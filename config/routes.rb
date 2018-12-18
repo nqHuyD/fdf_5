@@ -33,5 +33,16 @@ Rails.application.routes.draw do
     get "/product_data", to: "dashboard#product_data"
     get "/order_data", to: "dashboard#order_data"
     post "/sort_category", to: "dashboard#sort_category"
+    post "/update_category/:id", to: "dashboard#update_category"
+    get "/category_product_option/:type",
+      to: "dashboard#category_product_option"
+    get "/category_product_append/:category",
+      to: "dashboard#category_product_append"
+    delete "/category_product_destroy/:category",
+      to: "dashboard#category_product_destroy"
+    delete "/product_destroy/:id",
+      to: "dashboard#product_destroy"
+    patch "/update_product/:id",
+      to: "dashboard#update_product", as: "admin_update_product"
   end
 end

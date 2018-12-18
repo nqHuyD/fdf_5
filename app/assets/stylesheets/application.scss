@@ -370,3 +370,39 @@ a{
   font-size: 12px;
   padding: 6%;
 }
+
+.pointer{
+  cursor: pointer;
+}
+
+.box_product_category{
+  width: 90%;
+  height: auto;
+  border: 1px solid black;
+  overflow:auto;
+}
+
+.category_product_card{
+  width: 25%;
+  border-radius: 45px;
+  font-size: 12px;
+  margin: 1%;
+  height: auto;
+  float:left;
+  color: white;
+  background: black;
+  padding: 2%;
+}
+
+.category_product_card_destroy{
+  float:right;
+  cursor: pointer;
+}
+
+.success-form-category-update span{
+  color: green;
+}
+
+.success-form-product-update span{
+  color: green;
+}

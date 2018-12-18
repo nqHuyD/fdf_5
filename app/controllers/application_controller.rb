@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
 
   include SessionsHelper
   include CartHelper
+  include ProductHelper
 
   private
 
