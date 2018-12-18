@@ -1,0 +1,27 @@
+<tr class="rem">
+  <td class="invert">
+   <%= order.id%>
+  </span>
+  </td>
+  <td class="invert">
+    <%= order.name %>
+  </td>
+  <td class="invert">
+    <%= order.phone %>
+  </td>
+  <td class="invert">
+    <%= order.address %>
+  </td>
+  <td class="invert">
+    <%= order.created_at %>
+  </td>
+  <td style="border:none">
+    <span class="btn btn-success list_order_btn <%= order.id%>"
+      data-toggle="modal" data-target="#list_order_modal_<%= order.id %>">
+      <%= t("layouts.order.show") %>
+    </span>
+  </td>
+</tr>
+
+<%= render partial: "list_modal", locals:{order: order} %>
+
