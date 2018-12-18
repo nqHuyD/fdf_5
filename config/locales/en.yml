@@ -1,0 +1,99 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  layouts:
+    header:
+      title: "Zekii Foody"
+      subtitle: "For Food Lovers"
+      home: "Home"
+      product: "Food & Drink"
+      food: "Best Food"
+      drink: "Best Drink"
+      sale: "50%"
+      saleunit: "Off/-"
+      about: "About Us"
+      mail: "Mail Us"
+      empty: "Empty Cart"
+    home:
+      banner:
+        title: "Foods fade,"
+        subtitle: "smell is delicious"
+        bottom1:
+          opening: "Grand Opening Event With flat"
+          shop: "Shop Now"
+          deal: "hot deal"
+      specialDeal:
+        saleunit: "Off/-"
+        bestproduct: "Best Products"
+        we: "We offer"
+        save: "save up "
+        to: "to"
+      newProduct:
+        title: "New Products"
+      topBrand:
+        title: "Top Brands"
+      newLetter:
+        title: "Newsletter"
+        subtitle: "Excepteur sint occaecat cupidatat non proident, sunt."
+    about:
+      banner:
+        title: "About Us"
+      breadcum:
+        home: "Home"
+        title: "About Us"
+    mail:
+      banner:
+        title: "Mail Us"
+      breadcum:
+        home: "Home"
+        title: "Mail Us"
+    footer:
+      contact:
+        title: "Contact"
+        sub: "Duis aute irure dolor
+        in reprehenderit involuptate velit esse."
+      information:
+        title: "Information"
+        about: "About Us"
+        contact: "Contact Us"
+        faq: "FAQ's"
+        special: "Special Products"
+      category:
+        title: "Category"
+      profile:
+        title: "Profile"
+        summer: "Summer Food"
+      follow:
+        title: "Follow Us"
+      copy:
+        title: "&copy; 2016 Women's Fashion. All rights reserved | Design by"
+        author: "Zekii"

@@ -1,0 +1,27 @@
+## Install the MYSQL driver
+#   gem install mysql2
+#
+# Ensure the MySQL gem is defined in your Gemfile
+#   gem 'mysql2'
+#
+# And be sure to use new-style password hashing:
+#   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  username: root
+  password: Zeki?0912
+  host: 127.0.0.1
+  port: 3306
+
+development:
+  <<: *default
+  database: development_db_name
+
+test:
+  <<: *default
+  database: test_db_name
+
+production:
+  <<: *default
+  database: production_db_name
