@@ -14,6 +14,10 @@
 # Ignore Picture Uploads
 /public/uploads
 
+/assets/images/
+/assets/fonts/
+
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
@@ -25,10 +29,6 @@
 /yarn-error.log
 
 .byebug_history
-
-# Ignore assets images, fonts
-/app/assets/images
-/app/assets/fonts
 
 config/settings.local.yml
 config/settings/*.local.yml

@@ -1,0 +1,35 @@
+<tr class="rem<%= item+1 %>">
+  <td class="invert prodcut_id_invert"><%= item + 1 %></td>
+  <td class="invert-image">
+    <%= link_to product_path(current_cart[item]) do %>
+      <% if product.food_images.first.present? %>
+        <%= image_tag( product.food_images.first.picture.url, alt: " ", class: "img-cart-product" ) %>
+      <% end %>
+    <% end %>
+  </td>
+  <td class="invert invert-quantity">
+     <div class="quantity">
+      <div class="quantity-select">
+        <div class="entry value-minus">&nbsp;</div>
+        <div class="entry value" id="checkout_id_<%= item+1 %>"><span><%= current_quanity[item] %></span></div>
+        <div class="entry value-plus active">&nbsp;</div>
+      </div>
+    </div>
+  </td>
+  <td class="invert"><%= product.name %></td>
+  <td class="invert">
+    <%= t("layouts.product.related.record.priceunit", price: product.price) %>
+  </td>
+  <td class="invert">
+    <span>
+      <%= t("layouts.product.related.record.priceunit",
+        price: product.price * current_quanity[item].to_i) %>
+    <span>
+  </td>
+  <td class="invert">
+  <div class="rem">
+    <div class="close" id="close_<%= item+1 %>" ></div>
+  </div>
+</td>
+</tr>
+
