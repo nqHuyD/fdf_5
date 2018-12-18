@@ -5,27 +5,55 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
           &times;</button>
+        <% if logged_in? %>
+          <h4 class="modal-title" id="myModalLabel">
+          <%= t("layouts.userlogin.welcome",name: current_user.name) %></h4>
+        <% else %>
         <h4 class="modal-title" id="myModalLabel">
           <%= t("layouts.userlogin.title") %></h4>
+        <% end %>
       </div>
       <div class="modal-body modal-body-sub">
         <div class="row">
           <div class="col-md-8 modal_body_left modal_body_left1 border_right_modal" >
             <div class="sap_tabs">
-              <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
-                <ul>
-                  <li class="resp-tab-item" aria-controls="tab_item-0">
-                    <span><%= t("layouts.userlogin.signin") %></span>
-                  </li>
-                  <li class="resp-tab-item" aria-controls="tab_item-1">
-                    <span><%= t("layouts.userlogin.signup") %></span>
-                  </li>
-                </ul>
-                <!-- Sign_in Form -->
-                <%= render "layouts/user_login/signin_form" %>
+              <div class="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+                  <% if logged_in? %>
+                    <ul>
+                      <li class="resp-tab-item" aria-controls="tab_item-0">
+                        <span><%= t("layouts.userlogin.show") %></span>
+                      </li>
+                      <li class="resp-tab-item" aria-controls="tab_item-1">
+                        <span><%= t("layouts.userlogin.update") %></span>
+                      </li>
+                      <li class="resp-tab-item" aria-controls="tab_item-2">
+                        <span><%= t("layouts.userlogin.logout") %></span>
+                      </li>
+                    </ul>
+                    <!-- Showing_up Form -->
+                    <%= render "layouts/user_login/showing_form" %>
 
-                <!-- Sign_up Form -->
-                <%= render "layouts/user_login/signup_form" %>
+                    <!-- Updating Form -->
+                    <%= render "layouts/user_login/updating_form" %>
+
+                    <!-- logout Form -->
+                    <%= render "layouts/user_login/logout_form" %>
+                  <% else %>
+                    <ul>
+                      <li class="resp-tab-item" aria-controls="tab_item-0">
+                        <span><%= t("layouts.userlogin.signin") %></span>
+                      </li>
+                      <li class="resp-tab-item" aria-controls="tab_item-1">
+                        <span><%= t("layouts.userlogin.signup") %></span>
+                      </li>
+                    </ul>
+                    <!-- Sign_in Form -->
+                    <%= render "layouts/user_login/signin_form" %>
+
+                    <!-- Sign_up Form -->
+                    <%= render "layouts/user_login/signup_form" %>
+                  <% end %>
+                <%= javascript_include_tag "easyResponsiveTabs.js" %>
               </div>
             </div>
             <div id="OR" class="hidden-xs">

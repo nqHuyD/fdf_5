@@ -14,8 +14,44 @@
  *= require_self
  */
 
+/* body */
+a{
+  cursor: pointer;
+}
 /* Modal Login */
 .border_right_modal{
   border-right: 1px dotted #C2C2C2;
   padding-right: 3em;
+}
+
+/* Remember Me CheckBox */
+.remember{
+  margin-top: 5%;
+  font-size: 14px;
+  margin-left: 5%;
+  input{
+    width: 60px;
+    heigth: 60px;
+  }
+}
+
+/* Avatar Picture */
+.avatar_picture{
+  img{
+    width:100%;
+    height:220px;
+  }
+}
+
+/* Product Images */
+.product-images{
+  img{
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.pagination-nav{
+  margin-top: 10%;
+  margin-left: 10%;
 }
