@@ -1,6 +1,6 @@
 /*!
  * jQuery wmuSlider v2.1
- * 
+ *
  * Copyright (c) 2011 Brice Lechatellier
  * http://brice.lechatellier.com/
  *
@@ -8,11 +8,11 @@
  */
 
 ;(function($) {
-    
+
     $.fn.wmuSlider = function(options) {
 
         /* Default Options
-        ================================================== */       
+        ================================================== */
         var defaults = {
             animation: 'fade',
             animationDuration: 600,
@@ -28,7 +28,7 @@
             items: 1
         };
         var options = $.extend(defaults, options);
-        
+
         return this.each(function() {
 
             /* Variables
@@ -41,10 +41,10 @@
             var slideshowTimeout;
             var paginationControl;
             var isAnimating;
-            
-            
+
+
             /* Load Slide
-            ================================================== */ 
+            ================================================== */
             var loadSlide = function(index, infinite, touch) {
                 if (isAnimating) {
                     return false;
@@ -92,15 +92,15 @@
                             $(this).removeClass('wmuActive');
                         }
                     });
-                }    
-                                                    
+                }
+
                 // Trigger Event
-                $this.trigger('slideLoaded', index);             
+                $this.trigger('slideLoaded', index);
             };
-            
-        
+
+
             /* Navigation Control
-            ================================================== */ 
+            ================================================== */
        /*--  if (options.navigationControl) {
                 var prev = $('<a class="wmuSliderPrev">' + options.previousText + '</a>');
                 prev.click(function(e) {
@@ -113,39 +113,39 @@
                     }
                 });
                 $this.append(prev);
-                
+
                 var next = $('<a class="wmuSliderNext">' + options.nextText + '</a>');
                 next.click(function(e) {
                     e.preventDefault();
                     clearTimeout(slideshowTimeout);
-                    if (currentIndex + 1 == slidesCount) {    
+                    if (currentIndex + 1 == slidesCount) {
                         loadSlide(0, true);
                     } else {
                         loadSlide(currentIndex + 1);
                     }
-                });                
+                });
                 $this.append(next);
             }
          --*/
 
             /* Pagination Control
-            ================================================== */ 
+            ================================================== */
             if (options.paginationControl) {
                 paginationControl = $('<ul class="wmuSliderPagination"></ul>');
                 $.each(slides, function(i) {
                     paginationControl.append('<li><a href="#">' + i + '</a></li>');
-                    paginationControl.find('a:eq(' + i + ')').click(function(e) {    
+                    paginationControl.find('a:eq(' + i + ')').click(function(e) {
                         e.preventDefault();
-                        clearTimeout(slideshowTimeout);   
+                        clearTimeout(slideshowTimeout);
                         loadSlide(i);
-                    });                
+                    });
                 });
                 $this.append(paginationControl);
             }
-            
-            
+
+
             /* Slideshow
-            ================================================== */ 
+            ================================================== */
             if (options.slideshow) {
                 var slideshow = function() {
                     if (currentIndex + 1 < slidesCount) {
@@ -157,10 +157,10 @@
                 }
                 slideshowTimeout = setTimeout(slideshow, options.slideshowSpeed);
             }
-            
-                        
+
+
             /* Resize Slider
-            ================================================== */ 
+            ================================================== */
             var resize = function() {
                 var slide = $(slides[currentIndex]);
                 $this.animate({ height: slide.innerHeight() });
@@ -171,15 +171,15 @@
                     wrapper.css({
                         marginLeft: -$this.width() / options.items * currentIndex,
                         width: $this.width() * slides.length
-                    });                    
-                }    
+                    });
+                }
             };
-            
-                        
+
+
             /* Touch
             ================================================== */
             var touchSwipe = function(event, phase, direction, distance) {
-                clearTimeout(slideshowTimeout);              
+                clearTimeout(slideshowTimeout);
                 if(phase == 'move' && (direction == 'left' || direction == 'right')) {
                     if (direction == 'right') {
                         if (currentIndex == 0) {
@@ -192,9 +192,9 @@
                     }
                 } else if (phase == 'cancel' ) {
                     if (direction == 'right' && currentIndex == 0) {
-                        wrapper.animate({ marginLeft: -slidesCount * $this.width() / options.items }, options.animationDuration);                
+                        wrapper.animate({ marginLeft: -slidesCount * $this.width() / options.items }, options.animationDuration);
                     } else {
-                        wrapper.animate({ marginLeft: -currentIndex * $this.width() / options.items }, options.animationDuration);  
+                        wrapper.animate({ marginLeft: -currentIndex * $this.width() / options.items }, options.animationDuration);
                     }
                 } else if (phase == 'end' ) {
                     if (direction == 'right') {
@@ -203,7 +203,7 @@
                         } else {
                             loadSlide(currentIndex - 1);
                         }
-                    } else if (direction == 'left')    {        
+                    } else if (direction == 'left')    {
                         if (currentIndex + 1 == slidesCount) {
                             loadSlide(0, true);
                         } else {
@@ -212,7 +212,7 @@
                     } else {
                         wrapper.animate({ marginLeft: -currentIndex * $this.width() / options.items }, options.animationDuration);
                     }
-                }            
+                }
             };
             if (options.touch && options.animation == 'slide') {
                 if (!$.isFunction($.fn.swipe)) {
@@ -225,10 +225,10 @@
                     $this.swipe({ triggerOnTouchEnd:false, swipeStatus:touchSwipe, allowPageScroll:'vertical' });
                 }
             }
-            
-            
+
+
             /* Init Slider
-            ================================================== */ 
+            ================================================== */
             var init = function() {
                 var slide = $(slides[currentIndex]);
                 var img = slide.find('img');
@@ -247,7 +247,7 @@
                     if (options.items > slidesCount) {
                         options.items = slidesCount;
                     }
-                    slides.css('float', 'left');                    
+                    slides.css('float', 'left');
                     slides.each(function(i){
                         var slide = $(this);
                         slide.attr('data-index', i);
@@ -258,26 +258,28 @@
                     slides = $this.find(options.slide);
                 }
                 resize();
-                
+
                 $this.trigger('hasLoaded');
-                
+
                 loadSlide(currentIndex);
             }
             init();
-            
-                                                
+
+
             /* Bind Events
             ================================================== */
             // Resize
             $(window).resize(resize);
-            
+
             // Load Slide
             $this.bind('loadSlide', function(e, i) {
                 clearTimeout(slideshowTimeout);
                 loadSlide(i);
             });
-                        
+
         });
     }
-    
+
 })(jQuery);
+
+$('.example1').wmuSlider();

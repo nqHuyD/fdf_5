@@ -1,0 +1,8 @@
+$(".cart-header").html(`
+  <span class="simpleCart_total">
+    <%= t("layouts.header.priceunit", price: current_cart_total) %>
+  </span>
+    (<span id="simpleCart_quantity"
+    class="simpleCart_quantity"><%= current_cart_length %>
+    </span><%= t("layouts.header.items") %>)
+`)

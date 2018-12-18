@@ -6,23 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-30.times do |n|
-  name = "Sapageti"
-  inventory = 10
-  description = "This is so delicious"
-  price = rand(2..10)
-  category = rand(0..11)
-  if category < 7
-    food = true
-  else
-    food = false
-  end
-  Product.create!(name: name, inventory: inventory, food: food,
-    description: description, price: price, category: category)
-end
-
-products = Product.order(:created_at).take(20)
-5.times do
-  picture = File.open(Rails.root + "public/uploads/foodtest.jpg")
-  products.each {|product| product.food_images.create!(picture: picture)}
-end
+admin = User.create name: "zekipt", password: "091214",
+  password_confirmation: "091214", email: "huynguyen@gmail.com",
+  phone: "0935722714", role: 0

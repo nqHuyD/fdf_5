@@ -3,23 +3,9 @@
     <%= t("layouts.home.header.product") %><b class="caret"></b>
   </a>
   <ul class="dropdown-menu multi-column columns-3">
-    <div class="row">
       <div class="col-sm-3">
         <ul class="multi-column-dropdown">
-          <h6><%= t("layouts.home.header.food") %></h6>
-          <li><a href="dresses.html">Chicken
-            <span>New</span></a>
-          </li>
-          <li><a href="sweaters.html">Hamburger</a></li>
-          <li><a href="skirts.html">Pizza</a></li>
-        </ul>
-      </div>
-      <div class="col-sm-3">
-        <ul class="multi-column-dropdown">
-          <h6><%= t("layouts.home.header.drink") %></h6>
-          <li><a href="salwars.html">Milk Tea</a></li>
-          <li><a href="sarees.html">Coffee<span>New</span></a></li>
-          <li><%= link_to raw(t("layouts.header.store")), product_path %></li>
+          <li><%= link_to raw(t("layouts.header.store")), product_index_path %></li>
         </ul>
       </div>
       <div class="col-sm-2">
@@ -30,7 +16,6 @@
         </div>
       </div>
       <div class="clearfix"></div>
-    </div>
   </ul>
 </li>
 

@@ -244,7 +244,7 @@ button::-moz-focus-inner {
     opacity: 1; }
 
 .mfp-close-btn-in .mfp-close {
-  color: #333333; 
+  color: #333333;
   background: none;
   }
 
@@ -254,7 +254,7 @@ button::-moz-focus-inner {
   right: -6px;
   text-align: right;
   padding-right: 6px;
-  width: 100%; 
+  width: 100%;
 }
 .login h3,.signup h3{
 	margin:1em 0;
@@ -263,7 +263,7 @@ button::-moz-focus-inner {
 .login input[type="text"],.login input[type="password"]{
 	width:90%;
 	padding:5px;
-	margin:3px 0;x
+	margin:3px 0;
 	border: 1px solid #a63d56;
 	outline: none !important;
 }
@@ -292,7 +292,7 @@ button::-moz-focus-inner {
 	font-size: 18px;
 	color: #fff;
 	text-transform: uppercase;
-	width: 17%;	
+	width: 17%;
 	-webkit-appearance: none;
 }
 .login input[type="submit"]:hover,.signup input[type="submit"]:hover{
@@ -368,4 +368,4 @@ button::-moz-focus-inner {
 		height: 100%;
 		left: 0px;
 	}
-} 
+}
