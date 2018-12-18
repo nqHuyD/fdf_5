@@ -1,5 +1,8 @@
 class Product < ApplicationRecord
   has_many :food_images
+  has_many :product_orders
+  has_many :ranks
+  has_many :product_categorys
 
   enum category: [:fastfood, :chocolate, :salads, :sandwiches, :koreanfood,
     :japanfood, :desserts, :soda, :fruitdrink, :milktea, :coffee, :tea]

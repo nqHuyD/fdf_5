@@ -1,4 +1,4 @@
-$(".errors-signin-form").html(`<%= t "layouts.notification.flash.danger.login" %>`)
+$(".errors-signin-form").append(`<li><%= t "layouts.notification.flash.danger.login" %></li>`)
 
-$(".errors-signin-form").delay(3200).fadeOut(300);
+$(".errors-signin-form li").delay(3200).fadeOut(300);
 

@@ -2578,7 +2578,7 @@ td.invert-image a img {
 .rem{
 	position:relative;
 }
-.close1,.close2,.close3 {
+.close{
     background: url('/assets/close.png') no-repeat 0px 0px;
     cursor: pointer;
     width: 32px;
@@ -2619,15 +2619,6 @@ td.invert-image a img {
 }
 .checkout-left-basket ul li span {
     float: right;
-}
-.checkout-left-basket ul li:nth-child(5) {
-    font-size: 1em;
-    color: #212121;
-    font-weight: 600;
-    padding: 1em 0;
-    border-top: 1px solid #DDD;
-	border-bottom: 1px solid #DDD;
-    margin: 2em 0 0;
 }
 .checkout-right-basket a{
 	padding:10px 30px;

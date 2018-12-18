@@ -1,0 +1,15 @@
+<h4><%= t("layouts.product.category.price") %></h4>
+<div class="fillter">
+  <section class="range-slider" id="facet-price-range-slider" data-options='{"output":{"prefix":""},"maxSymbol":""}'>
+    <input id="range-slider-1" name="range-1" value= <%= Product.minimum(:price).to_s %>
+      min=<%= Product.minimum(:price).to_s %> max=<%= Product.maximum(:price).to_s %> step="1" type="range">
+    <input id="range-slider-2" name="range-2" value=<%= Product.maximum(:price).to_s %>
+      min=<%= Product.minimum(:price).to_s %> max=<%= Product.maximum(:price).to_s %> step="1" type="range">
+  </section>
+  <span class="left"><%= t("layouts.product.related.record.priceunit", price: Product.minimum(:price)) %></span>
+  <span class="right"><%= t("layouts.product.related.record.priceunit", price: Product.maximum(:price)) %></span>
+  <br><br>
+  <button class="btn btn-danger filter_button_submit">Filter Now</button>
+</div>
+
+<%= javascript_include_tag("filter_price.js") %>

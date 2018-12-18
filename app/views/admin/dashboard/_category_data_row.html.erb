@@ -1,0 +1,28 @@
+<tr class="tr-shadow category_data_row_<%= @category.id %>">
+  <td class="desc">
+    <%= @category.name %>
+  </td>
+  <td>
+    <span class="block-email">
+      <%= @category.type_food %>
+    </span>
+  </td>
+  <td>
+    <%= label_category_status @category.status %>
+  </td>
+  <td><%= @category.created_at.strftime("%F %T") %></td>
+  <td>
+      <div class="table-data-feature">
+          <button class="item" data-toggle="modal" data-target="#tooltip_edit_category_<%= @category.id %>"
+            data-placement="top" title="Edit">
+              <i class="zmdi zmdi-edit"></i>
+          </button>
+          <button class="tooltip_destroy_category <%= @category.id %>"
+            data-placement="top" title="Delete">
+              <i class="zmdi zmdi-delete"></i>
+          </button>
+      </div>
+  </td>
+</tr>
+<tr class="spacer"></tr>
+<%= render partial: "modal_update_category" %>
