@@ -16,12 +16,12 @@ default: &default
 
 development:
   <<: *default
-  database: development_db_name
+  database: project_1
 
 test:
   <<: *default
-  database: test_db_name
+  database: project_1
 
 production:
   <<: *default
-  database: production_db_name
+  database: project_1

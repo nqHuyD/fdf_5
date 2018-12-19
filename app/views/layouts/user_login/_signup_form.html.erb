@@ -1,0 +1,27 @@
+<div class="tab-2 resp-tab-content" aria-labelledby="tab_item-1">
+  <div class="facts">
+    <div class="register">
+       <%= form_for "#" do |f| %>
+        <%= f.label :name, t("layouts.userlogin.signupform.name") %>
+        <%= f.text_field :name, placeholder: t("layouts.userlogin.placeholder.name") %>
+
+        <%= f.label :password, t("layouts.userlogin.signupform.pass") %>
+        <%= f.password_field :password, placeholder: t("layouts.userlogin.placeholder.pass") %>
+
+        <%= f.label :password_confirm, t("layouts.userlogin.signupform.confirm") %>
+        <%= f.password_field :password_confirm, placeholder: t("layouts.userlogin.placeholder.confirm")%>
+
+        <%= f.label :email, t("layouts.userlogin.signupform.email") %>
+        <%= f.email_field :email, placeholder: t("layouts.userlogin.placeholder.email") %>
+
+        <%= f.label :phone, t("layouts.userlogin.signupform.phone") %><br/>
+        <%= f.telephone_field :phone %>
+
+        <div class="sign-up">
+          <%= f.submit t("layouts.userlogin.signupform.submit") %>
+        </div>
+      <% end %>
+      </form>
+    </div>
+  </div>
+</div>
