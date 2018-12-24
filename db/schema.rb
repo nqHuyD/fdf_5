@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20181219041225) do
     t.string "phone"
     t.string "profile_img"
     t.integer "role"
+    t.string "remember_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
