@@ -14,3 +14,8 @@ validates:
         minimum: 10
     sessions:
       remember: "1"
+    avatar:
+      size:
+        maximum: 2
+      image:
+        accept: "image/jpeg,image/gif,image/png"

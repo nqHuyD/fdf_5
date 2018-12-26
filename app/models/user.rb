@@ -1,7 +1,8 @@
 class User < ApplicationRecord
-  attr_accessor :remember_token
-
   before_save :downcase_email
+
+  attr_accessor :remember_token
+  mount_uploader :profile_img, AvatarUploader
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :name, presence: true,
@@ -17,6 +18,8 @@ class User < ApplicationRecord
   validates :password, presence: true,
     length: {minimum: Settings.validates.user.password.length.minimum},
     allow_nil: true
+
+  validate :profile_size
 
   def remember
     self.remember_token = User.new_token
@@ -48,5 +51,16 @@ class User < ApplicationRecord
 
   def downcase_email
     email.downcase!
+  end
+
+  # Validates the size of an uploaded picture.
+  def size_notify
+    errortext = I18n.t "layouts.erros.userlogin.updatingform.avatarsize"
+    errors.add(:picture, errortext)
+  end
+
+  def profile_size
+    limitsize = Settings.validates.user.avatar.size.maximum.megabytes
+    size_notify if profile_img.size > limitsize
   end
 end
