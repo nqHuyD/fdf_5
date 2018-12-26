@@ -1,19 +1,22 @@
 <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
   <div class="facts">
     <div class="register">
-      <%= form_for :session, url: session_path do |f| %>
-        <%= f.label :email, t("layouts.userlogin.siginform.email") %>
-        <%= f.email_field :email_login, placeholder: t("layouts.userlogin.placeholder.email") %>
+      <%= form_for :sessions, url: sessions_path, remote: true do |f| %>
+        <%= f.label :email, t("layouts.user_login.siginform.email") %>
+        <%= f.email_field :email_login, placeholder: t("layouts.user_login.placeholder.email") %>
 
-        <%= f.label :password, t("layouts.userlogin.siginform.pass") %>
-        <%= f.password_field :password_login, placeholder: t("layouts.userlogin.placeholder.pass") %>
+        <%= f.label :password, t("layouts.user_login.siginform.pass") %>
+        <%= f.password_field :password_login, placeholder: t("layouts.user_login.placeholder.pass") %>
 
         <div class="remember roundedTwo">
-          <%= f.label :remember, t("layouts.userlogin.siginform.remember") %>
+          <%= f.label :remember, t("layouts.user_login.siginform.remember") %>
           <%= f.check_box :remember %>
         </div>
         <div class="sign-up">
-          <%= f.submit t("layouts.userlogin.siginform.submit") %>
+          <%= f.submit t("layouts.user_login.siginform.submit") %>
+        </div><br/><br/>
+        <div class="errorsform errors-signin-form">
+
         </div>
       <% end %>
     </div>

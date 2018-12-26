@@ -96,10 +96,14 @@ en:
       copy:
         title: "&copy; 2016 Women's Fashion. All rights reserved | Design by"
         author: "Zekii"
-    userlogin:
+    user_login:
       title: "Don't Wait, Login now!"
+      welcome: "Welcome %{name} to Zekii Food"
       signin: "Sign In"
       signup: "Sign Up"
+      show: "Profile"
+      update: "Edit Profile"
+      logout: "Log Out"
       siginform:
         email: "Email"
         pass: "Password"
@@ -112,8 +116,33 @@ en:
         email: "Email"
         phone: "Number Phone"
         submit: "Create Account"
+      showing_form:
+        name: "User Name :"
+        email: "Email :"
+        phone: "Phone Number:"
+      updatingform:
+        name: "Your Name"
+        email: "Your Email"
+        phone: "Your Phone"
+        password: "Password"
+        confirm: "Password Confirmation"
+        submit: "Save Changes"
+      logoutform:
+        title: "Do you really want to log out ?"
+        button:
+          yeslog: "Yes"
+          nolog: "No"
       placeholder:
         name: "Name User"
         email: "Email Address"
         pass: "Password"
         confirm: "Password Confirmation"
+    notification:
+      flash:
+        success:
+          signup: "Sign Up Successful"
+          login: "Login Successful"
+          update: "Update Successful"
+        danger:
+          find: "Can not Find User"
+          login: "Your Email or Password is not correct"
