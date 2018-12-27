@@ -42,6 +42,7 @@ en:
       about: "About Us"
       mail: "Mail Us"
       empty: "Empty Cart"
+      store: "<i>Food Store</i>"
     home:
       banner:
         title: "Foods fade,"
@@ -75,6 +76,25 @@ en:
       breadcum:
         home: "Home"
         title: "Mail Us"
+    product:
+      banner:
+        title: "<h2>Food Deals<span>up to</span>40% <i>Discount</i></h2>"
+      breadcum:
+        home: "Home"
+        title: "Foods"
+      category:
+        title: "Zekii Menu"
+        food: "Food Category"
+        drink: "Drink Category"
+        sort:
+          default: "Default Sorting"
+          alpha: "Sort by alphabet"
+          pricelh: "Sort by Price low to high"
+          pricehl: "Sort by Price high to low"
+          rating: "Sort by average Rating"
+        count: "Having: %{result} data"
+      related:
+        title: "Related Product"
     footer:
       contact:
         title: "Contact"
@@ -151,3 +171,6 @@ en:
       userlogin:
         updatingform:
           avatarsize: "should be less than 2MB"
+      prodcuts:
+        foodimages:
+          imagesize: "should be less than 3MB"

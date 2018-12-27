@@ -10,7 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181219041225) do
+ActiveRecord::Schema.define(version: 20181224005500) do
+
+  create_table "food_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "picture"
+    t.integer "is_primary"
+    t.bigint "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_food_images_on_product_id"
+  end
+
+  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.integer "inventory"
+    t.text "description"
+    t.integer "price"
+    t.boolean "food", default: true
+    t.integer "category", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -24,4 +44,5 @@ ActiveRecord::Schema.define(version: 20181219041225) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "food_images", "products"
 end

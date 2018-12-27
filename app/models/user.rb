@@ -2,6 +2,7 @@ class User < ApplicationRecord
   before_save :downcase_email
 
   attr_accessor :remember_token
+
   mount_uploader :profile_img, AvatarUploader
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
@@ -56,7 +57,7 @@ class User < ApplicationRecord
   # Validates the size of an uploaded picture.
   def size_notify
     errortext = I18n.t "layouts.erros.userlogin.updatingform.avatarsize"
-    errors.add(:picture, errortext)
+    errors.add(:profile_img, errortext)
   end
 
   def profile_size
