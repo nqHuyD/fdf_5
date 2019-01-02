@@ -1,0 +1,23 @@
+<div class="col-md-4 agileinfo_new_products_grid agileinfo_new_products_grid_dresses page_<%= pages %>">
+  <div class="agile_ecommerce_tab_left dresses_grid">
+    <div class="hs-wrapper hs-wrapper2">
+      <div class="product-images">
+      <% @products.food_images.each do |image| %>
+        <%= render_image image %>
+      <% end %>
+      </div>
+      <div class="w3_hs_bottom w3_hs_bottom_sub1">
+        <ul>
+          <li>
+            <a href="#" data-toggle="modal" data-target="#myModal9"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <h5><a href="single.html"><%= product.name %></a></h5>
+    <div class="simpleCart_shelfItem">
+      <p><i class="item_price"></i><%= t("layouts.product.related.record.priceunit", price: product.price) %></p>
+      <p><a class="item_add" href="#"><%= t("layouts.product.related.record.addcart") %></a></p>
+    </div>
+  </div>
+</div>

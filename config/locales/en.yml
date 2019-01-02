@@ -93,8 +93,26 @@ en:
           pricehl: "Sort by Price high to low"
           rating: "Sort by average Rating"
         count: "Having: %{result} data"
+        menu:
+          food:
+            fastfood: "Fast fodd"
+            chocolate: "Chocolate"
+            salads: "Salads"
+            sandwiches: "Sandwiches"
+            koreanfood: "Korean Food"
+            japanfood: "Japanese Food"
+            desserts: "Desserts"
+          drink:
+            soda: "Soda"
+            fruitdrink: "fruit Drink"
+            milktea: "Milk Tea"
+            coffee: "Coffee"
+            tea: "Tea"
       related:
         title: "Related Product"
+        record:
+          priceunit: "$ %{price}"
+          addcart: "Add To Cart"
     footer:
       contact:
         title: "Contact"

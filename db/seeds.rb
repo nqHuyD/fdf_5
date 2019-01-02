@@ -10,7 +10,7 @@
   name = "Sapageti"
   inventory = 10
   description = "This is so delicious"
-  price = 5
+  price = rand(2..10)
   category = rand(0..11)
   if category < 7
     food = true
@@ -22,7 +22,7 @@
 end
 
 products = Product.order(:created_at).take(20)
-10.times do
+5.times do
   picture = File.open(Rails.root + "public/uploads/foodtest.jpg")
   products.each {|product| product.food_images.create!(picture: picture)}
 end
