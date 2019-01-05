@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Zekii Foody</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    "application", media: "all",
+      "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track":
+      "reload" %>
+
+    <link href="//fonts.googleapis.com/css?family=Glegoo:400,700"
+      rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,
+      400italic,600,600italic,700,700italic,800,800italic" rel="stylesheet"
+      type="text/css">
+
+    <!-- start-smooth-scrolling -->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $(".scroll").click(function(event){
+          event.preventDefault();
+          $("html,body").animate({scrollTop:$(this.hash).offset().top},1000);
+        });
+      });
+    </script>
+    <!-- //end-smooth-scrolling -->
+
+  </head>
+
+  <body>
+    <!-- header -->
+    <%= render "layouts/header" %>
+
+    <div class="container">
+      <% flash.each do |message_type, message| %>
+        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+      <% end %>
+    </div>
+
+    <%= yield %>
+
+    <!-- newsletter -->
+    <%= render "layouts/new_letter" %>
+
+    <!-- footer -->
+    <%= render "layouts/footer" %>
+  </body>
+</html>

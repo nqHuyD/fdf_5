@@ -1,0 +1,34 @@
+validates:
+  user:
+    name:
+      length:
+        maximum: 30
+    password:
+      length:
+        minimum: 6
+    email:
+      length:
+        maximum: 30
+    phone:
+      length:
+        minimum: 10
+    sessions:
+      remember: "1"
+    avatar:
+      size:
+        maximum: 2
+      image:
+        accept: "image/jpeg,image/gif,image/png"
+  food:
+    name:
+      length:
+        maximum: 25
+    description:
+      length:
+        maximum: 100
+    imagesize:
+      maximum: 3
+food:
+  record:
+    row: 4
+    pages: 9

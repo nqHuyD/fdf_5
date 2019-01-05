@@ -1,0 +1,80 @@
+<div class="dresses">
+    <div class="container">
+      <div class="w3ls_dresses_grids">
+        <div class="col-md-4 w3ls_dresses_grid_left">
+          <div class="w3ls_dresses_grid_left_grid">
+            <h3><%= t(".title") %></h3>
+            <div class="w3ls_dresses_grid_left_grid_sub">
+              <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                  <h4 class="panel-title asd">
+                  <a class="pa_italic" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                      <i class="glyphicon glyphicon-minus" aria-hidden="true"></i><%= t(".food") %>
+                  </a>
+                  </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                  <div class="panel-body panel_text">
+                  <ul class="category-food-ul">
+                    <li><a><%= t(".menu.food.fastfood") %></a></li>
+                    <li><a><%= t(".menu.food.chocolate") %></a></li>
+                    <li><a><%= t(".menu.food.salads") %></a></li>
+                    <li><a><%= t(".menu.food.koreanfood") %></a></li>
+                    <li><a><%= t(".menu.food.japanfood") %></a></li>
+                    <li><a><%= t(".menu.food.desserts") %></a></li>
+                  </ul>
+                  </div>
+                </div>
+                </div>
+                <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingTwo">
+                  <h4 class="panel-title asd">
+                  <a class="pa_italic collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    <i class="glyphicon glyphicon-minus" aria-hidden="true"></i><%= t(".drink") %>
+                  </a>
+                  </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                   <div class="panel-body panel_text">
+                  <ul class="category-food-ul">
+                    <li><a><%= t(".menu.drink.soda") %></a></li>
+                    <li><a><%= t(".menu.drink.fruitdrink") %></a></li>
+                    <li><a><%= t(".menu.drink.milktea") %></a></li>
+                    <li><a><%= t(".menu.drink.coffee") %></a></li>
+                    <li><a><%= t(".menu.drink.tea") %></a></li>
+                  </ul>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+        <div class= "col-md-8 w3ls_dresses_grid_right">
+          <div class="w3ls_dresses_grid_right_grid2">
+            <div class="w3ls_dresses_grid_right_grid2_left">
+              <h3><%= t(".count", result: 1) %></h3>
+            </div>
+            <div class="w3ls_dresses_grid_right_grid2_right">
+              <select name="select_item" class="select_item">
+                <option selected="selected"><%= t(".sort.default") %></option>
+                <option><%= t(".sort.alpha") %></option>
+                <option><%= t(".sort.rating") %></option>
+                <option><%= t(".sort.pricelh") %></option>
+                <option><%= t(".sort.pricehl") %></option>
+              </select>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+          <div class="render-category">
+            <%= render partial: "layouts/product/rowdata" %>
+          </div>
+        </div>
+      <div class="clearfix"> </div>
+    </div>
+  </div>
+</div>

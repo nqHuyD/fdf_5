@@ -1,0 +1,194 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+en:
+  layouts:
+    header:
+      title: "Zekii Foody"
+      subtitle: "For Food Lovers"
+      home: "Home"
+      product: "Food & Drink"
+      food: "Best Food"
+      drink: "Best Drink"
+      sale: "50%"
+      saleunit: "Off/-"
+      about: "About Us"
+      mail: "Mail Us"
+      empty: "Empty Cart"
+      store: "<i>Food Store</i>"
+    home:
+      banner:
+        title: "Foods fade,"
+        subtitle: "smell is delicious"
+        bottom1:
+          opening: "Grand Opening Event With flat"
+          shop: "Shop Now"
+          deal: "hot deal"
+      specialDeal:
+        saleunit: "Off/-"
+        bestproduct: "Best Products"
+        we: "We offer"
+        save: "save up "
+        to: "to"
+      newProduct:
+        title: "New Products"
+      topBrand:
+        title: "Top Brands"
+      newLetter:
+        title: "Newsletter"
+        subtitle: "Excepteur sint occaecat cupidatat non proident, sunt."
+    about:
+      banner:
+        title: "About Us"
+      breadcum:
+        home: "Home"
+        title: "About Us"
+    mail:
+      banner:
+        title: "Mail Us"
+      breadcum:
+        home: "Home"
+        title: "Mail Us"
+    product:
+      banner:
+        title: "<h2>Food Deals<span>up to</span>40% <i>Discount</i></h2>"
+      breadcum:
+        home: "Home"
+        title: "Foods"
+      category:
+        title: "Zekii Menu"
+        food: "Food Category"
+        drink: "Drink Category"
+        sort:
+          default: "Default Sorting"
+          alpha: "Sort by alphabet"
+          pricelh: "Sort by Price low to high"
+          pricehl: "Sort by Price high to low"
+          rating: "Sort by average Rating"
+        count: "Having: %{result} data"
+        menu:
+          food:
+            fastfood: "Fast fodd"
+            chocolate: "Chocolate"
+            salads: "Salads"
+            sandwiches: "Sandwiches"
+            koreanfood: "Korean Food"
+            japanfood: "Japanese Food"
+            desserts: "Desserts"
+          drink:
+            soda: "Soda"
+            fruitdrink: "fruit Drink"
+            milktea: "Milk Tea"
+            coffee: "Coffee"
+            tea: "Tea"
+      related:
+        title: "Related Product"
+        record:
+          priceunit: "$ %{price}"
+          addcart: "Add To Cart"
+    footer:
+      contact:
+        title: "Contact"
+        sub: "Duis aute irure dolor
+        in reprehenderit involuptate velit esse."
+      information:
+        title: "Information"
+        about: "About Us"
+        contact: "Contact Us"
+        faq: "FAQ's"
+        special: "Special Products"
+      category:
+        title: "Category"
+      profile:
+        title: "Profile"
+        summer: "Summer Food"
+      follow:
+        title: "Follow Us"
+      copy:
+        title: "&copy; 2016 Women's Fashion. All rights reserved | Design by"
+        author: "Zekii"
+    user_login:
+      title: "Don't Wait, Login now!"
+      welcome: "Welcome %{name} to Zekii Food"
+      signin: "Sign In"
+      signup: "Sign Up"
+      show: "Profile"
+      update: "Edit Profile"
+      logout: "Log Out"
+      siginform:
+        email: "Email"
+        pass: "Password"
+        submit: "Submit"
+        remember: "Remember Me"
+      signupform:
+        name: "Name"
+        pass: "Password"
+        confirm: "Password Confirmation"
+        email: "Email"
+        phone: "Number Phone"
+        submit: "Create Account"
+      showing_form:
+        name: "User Name :"
+        email: "Email :"
+        phone: "Phone Number:"
+      updatingform:
+        name: "Your Name"
+        email: "Your Email"
+        phone: "Your Phone"
+        password: "Password"
+        image: "Profile Image"
+        confirm: "Password Confirmation"
+        submit: "Save Changes"
+      logoutform:
+        title: "Do you really want to log out ?"
+        button:
+          yeslog: "Yes"
+          nolog: "No"
+      placeholder:
+        name: "Name User"
+        email: "Email Address"
+        pass: "Password"
+        confirm: "Password Confirmation"
+    notification:
+      flash:
+        success:
+          signup: "Sign Up Successful"
+          login: "Login Successful"
+          update: "Update Successful"
+        danger:
+          find: "Can not Find User"
+          login: "Your Email or Password is not correct"
+    errors:
+      userlogin:
+        updatingform:
+          avatarsize: "should be less than 2MB"
+      prodcuts:
+        foodimages:
+          imagesize: "should be less than 3MB"
