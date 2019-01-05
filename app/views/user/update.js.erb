@@ -1,0 +1,5 @@
+<% @user.errors.full_messages.each do |msg| %>
+  $(".errors-updating-form").append(`<li><%= msg %></li>`)
+<% end %>
+
+$(".errors-updating-form-form").delay(3200).fadeOut(300);
