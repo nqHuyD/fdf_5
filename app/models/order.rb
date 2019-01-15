@@ -1,5 +1,6 @@
 class Order < ApplicationRecord
   before_create :set_status
+
   belongs_to :user
   has_many :product_orders
 
@@ -12,9 +13,10 @@ class Order < ApplicationRecord
 
   validates :address, presence: true,
     length: {maximum: Settings.validates.order.address.length.maximum}
-  validates :phone,
-    length: {minimum: Settings.validates.user.phone.length.minimum}
-  validates :name,
+  validates :phone, presence: true,
+    length: {minimum: Settings.validates.user.phone.length.minimum},
+    numericality: true
+  validates :name, presence: true,
     length: {maximum: Settings.validates.user.name.length.maximum}
 
   private

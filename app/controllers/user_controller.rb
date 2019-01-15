@@ -3,6 +3,8 @@ class UserController < ApplicationController
   before_action :admin_load_user, only: [:update_role, :destroy]
 
   def update_role
+    authorize! :update, User
+
     @users.update_attribute :role, params[:role].to_i - 1
     respond_to do |format|
       format.js
@@ -10,6 +12,8 @@ class UserController < ApplicationController
   end
 
   def destroy
+    authorize! :destory, User
+
     ActiveRecord::Base.transaction do
       begin
         # Delete Rank Rows that having @user data

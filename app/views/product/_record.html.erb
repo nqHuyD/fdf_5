@@ -16,7 +16,7 @@
         </ul>
       </div>
     </div>
-    <h5><%= link_to product.name, product_path(product.id) %></a></h5>
+    <h5><%= link_to product.name, product_path(product.slug) %></a></h5>
     <div class="simpleCart_shelfItem">
       <p><i class="item_price"></i>
         <%= t("layouts.product.related.record.priceunit", price: product.price) %>

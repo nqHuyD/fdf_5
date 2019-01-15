@@ -2,13 +2,11 @@ class Admin::DashboardController < Admin::AdminApplicationController
   skip_before_action :verify_authenticity_token
   before_action :load_sort_category, only: :sort_category
   before_action :init_update_product, only: :update_product
+  before_action :load_notify_data, only: [:notify_data, :realtime_notify]
 
   def overview; end
 
-  def notify_data
-    activity = PublicActivity::Activity.all.order("created_at desc")
-    @activities = activity.page params[:page]
-  end
+  def notify_data; end
 
   def user_data
     @user_data = User.all.sort_by_newest.page params[:page]
@@ -87,6 +85,7 @@ class Admin::DashboardController < Admin::AdminApplicationController
       end
     end
   end
+
   ## Update Controller
   # Update Activites
   def update_activites
@@ -99,6 +98,8 @@ class Admin::DashboardController < Admin::AdminApplicationController
 
   # Update users Active
   def active_update_users
+    authorize! :update, User
+
     @users = User.find_by id: params[:id].to_i
     params[:active] = detect_active params[:active]
     if params[:active].present? && @users.active.blank?
@@ -113,6 +114,8 @@ class Admin::DashboardController < Admin::AdminApplicationController
 
   # Update Category
   def update_category
+    authorize! :update, Category
+
     @category_data = Category.all.sort_by_newest.page(params[:page])
     @category_data = @category_data.per_page Settings.admin.category_per_page
     @category = Category.find_by id: params[:id]
@@ -129,6 +132,8 @@ class Admin::DashboardController < Admin::AdminApplicationController
 
   # Update Category Active
   def active_update_category
+    authorize! :update, Category
+
     @category = Category.find_by id: params[:id].to_i
     params[:active] = detect_active params[:active]
     if params[:active].present? && @category.active.blank?
@@ -143,6 +148,8 @@ class Admin::DashboardController < Admin::AdminApplicationController
 
   # Update Product
   def update_product
+    authorize! :update, Product
+
     if @update_status
       respond_to do |format|
         format.js{render "sucess_update_product.js.erb"}
@@ -156,6 +163,8 @@ class Admin::DashboardController < Admin::AdminApplicationController
 
   # Update Products Active
   def active_update_products
+    authorize! :update, Product
+
     @products = Product.find_by id: params[:id].to_i
     params[:active] = detect_active params[:active]
     if params[:active].present? && @products.active.blank?
@@ -171,6 +180,8 @@ class Admin::DashboardController < Admin::AdminApplicationController
   ## Destory Controller
   # Destroy Category Product
   def category_product_destroy
+    authorize! :destroy, Category
+
     session[:category_product].delete(params[:category].to_i)
     respond_to do |format|
       format.js{render "category_product_append.js.erb"}
@@ -179,6 +190,8 @@ class Admin::DashboardController < Admin::AdminApplicationController
 
   # Destroy Product
   def product_destroy
+    authorize! :destroy, Product
+
     @product = Product.find_by id: params[:id]
     ActiveRecord::Base.transaction do
       begin
@@ -197,6 +210,17 @@ class Admin::DashboardController < Admin::AdminApplicationController
     end
   end
 
+
+  ## RealTime Notify
+  def realtime_notify
+    @user = User.find params[:name]
+    @order = Order.find params[:order]
+    @total_product = @order.product_orders.count
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
 
   def product_params
@@ -210,6 +234,11 @@ class Admin::DashboardController < Admin::AdminApplicationController
   def init_product
     @product_data = Product.all.sort_by_newest.page params[:page]
     @product = Product.find_by id: params[:id]
+  end
+
+  def load_notify_data
+    activity = PublicActivity::Activity.all.order("created_at desc")
+    @activities = activity.page params[:page]
   end
 
   def load_sort_category
@@ -243,6 +272,6 @@ class Admin::DashboardController < Admin::AdminApplicationController
     # Delete Product Orders that having @product data
     ProductOrder.where(product_id: @product.id).each(&:destroy)
 
-    @product.destroy
+    @product.really_destroy!
   end
 end

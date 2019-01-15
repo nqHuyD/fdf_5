@@ -10,7 +10,7 @@ module Admin::DashboardHelper
     @user = User.find_by id: active.trackable_id
 
     @user_name = @user.present? ? @user.name.capitalize : "NoName"
-    @active_day = distance_of_time_in_words(active.created_at.-DateTime.current)
+    @active_day = distance_of_time_in_words(active.created_at-DateTime.current)
     @read = active.read
 
     render partial: "notify_data_row"
@@ -32,7 +32,7 @@ module Admin::DashboardHelper
   def render_profile_img user
     image_tag @user.profile_img.url, class: "avatar_icon" if @user.present?
   end
-  
+
   # Overview Part
   def total_user
     User.where(active: true).count
