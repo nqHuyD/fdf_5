@@ -17,7 +17,7 @@ class User < ApplicationRecord
 
   scope :sort_by_newest, ->{order("created_at desc")}
 
-  attr_accessor :remember_token, :social_active
+  attr_accessor :remember_token
 
   mount_uploader :profile_img, AvatarUploader
 
@@ -39,11 +39,12 @@ class User < ApplicationRecord
     }
   end
 
+  def admin?
+    return true if role == "admin"
+    false
+  end
+
   class << self
-    def admin?
-      return true if role == "admin"
-      false
-    end
 
     def new_with_session params, session
       super.tap do |user|
@@ -54,13 +55,16 @@ class User < ApplicationRecord
       end
     end
 
+    def admin_array
+      return User.where(role: 0)
+    end
+
     def from_omniauth auth
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
         user.email = auth.info.email
         user.password = Devise.friendly_token[0,20]
         user.name = auth.info.name
         user.social_img = auth.info.image
-        user.social_active = true
       end
     end
   end

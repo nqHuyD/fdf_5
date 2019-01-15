@@ -44,6 +44,7 @@ Rails.application.routes.draw do
 
     # Update Activities Read Field
     post "/update_activites", to: "dashboard#update_activites"
+    post "/realtime_notify", to: "dashboard#realtime_notify"
     # Update Active Status
     patch "/active_update_category/:id", to: "dashboard#active_update_category"
     patch "/active_update_products/:id", to: "dashboard#active_update_products"

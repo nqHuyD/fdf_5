@@ -1,5 +1,6 @@
 class Order < ApplicationRecord
   before_create :set_status
+
   belongs_to :user
   has_many :product_orders
 

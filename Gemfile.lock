@@ -646,6 +646,7 @@ DEPENDENCIES
   rails-controller-testing (= 1.0.2)
   rails_12factor
   ransack!
+  redis
   resque
   rubocop (~> 0.54.0)
   sass-rails (= 5.0.6)

@@ -14,7 +14,6 @@ $(".fa_product_rank").click(function(){
   attr = $(this).attr("id")
   product_id = attr.slice(2,3)
   star = attr.slice(0,1)
-  console.log(star)
   $.ajax({
     url:"rank",
     type: "POST",

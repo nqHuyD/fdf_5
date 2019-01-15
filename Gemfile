@@ -25,6 +25,7 @@ gem "puma", "3.9.1"
 gem "rails", "5.1.6"
 gem "ransack", github: "activerecord-hackery/ransack"
 gem "rubocop", "~> 0.54.0", require: false
+gem "redis"
 gem "resque"
 gem "sass-rails", "5.0.6"
 gem "simple_form"

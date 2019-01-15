@@ -1,7 +1,9 @@
 class RankController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :init_product
+
   def create
+    authorize! :create, Rank
     @rank_by_user = current_user.ranks.find_by product_id: params[:product_id]
 
     # Update Rank if Product has ranked before
@@ -20,6 +22,7 @@ class RankController < ApplicationController
   end
 
   def update
+    authorize! :update, Rank
     if params[:star].to_i != @rank_by_user.ranking
       @product.total_star -= @rank_by_user.ranking
       @rank_by_user.update_attribute :ranking, params[:star].to_i

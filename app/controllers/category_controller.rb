@@ -3,6 +3,8 @@ class CategoryController < ApplicationController
   before_action :load_category, except: :create
 
   def create
+    authorize! :create, Category
+
     @category = Category.new name: category_params[:name],
       status: category_params[:status], type_food: category_params[:type_food]
     respond_to do |format|
@@ -16,13 +18,15 @@ class CategoryController < ApplicationController
   end
 
   def destroy
+    authorize! :destory, Category
+
     ActiveRecord::Base.transaction do
       begin
         # Delete ProductCategory Rows that having @category data
         ProductCategory.where(category_id: @category.id).each(&:destroy)
 
         # Delete Category Rows that having @category data
-        @category.destroy
+        @category.really_destroy!
       rescue ActiveRecord::RecordInvalid
         flash[:warning] = "Can not Delete this data"
         redirect_to admin_category_data_url
