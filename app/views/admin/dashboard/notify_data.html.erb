@@ -5,10 +5,12 @@
         <div class="row">
           <div class="col-lg-7 offset-lg-3">
           <h3>Notificaiton</h3>
-          <% @activities.each do |activity| %>
-            <%= render_notify activity %>
-          <% end %>
-          <%= paginate @activities, theme: "twitter-bootstrap-3" %>
+          <div class="real_time_ajax_activity">
+            <% @activities.each do |activity| %>
+              <%= render_notify activity %>
+            <% end %>
+            <%= paginate @activities, theme: "twitter-bootstrap-3" %>
+          </div>
         </div>
       </div>
     </div>

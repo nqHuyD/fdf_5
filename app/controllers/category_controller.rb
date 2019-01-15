@@ -1,10 +1,12 @@
 class CategoryController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :load_category, except: :create
+  before_action :load_category, only: :destroy
 
   def create
+    authorize! :create, Category
     @category = Category.new name: category_params[:name],
-      status: category_params[:status], type_food: category_params[:type_food]
+      status: category_params[:status].to_i,
+      type_food: category_params[:type_food].to_i
     respond_to do |format|
       if @category.save
         flash[:success] = t "layouts.notification.flash.success.category"
@@ -16,13 +18,14 @@ class CategoryController < ApplicationController
   end
 
   def destroy
+    authorize! :destory, Category
     ActiveRecord::Base.transaction do
       begin
         # Delete ProductCategory Rows that having @category data
         ProductCategory.where(category_id: @category.id).each(&:destroy)
 
         # Delete Category Rows that having @category data
-        @category.destroy
+        @category.really_destroy!
       rescue ActiveRecord::RecordInvalid
         flash[:warning] = "Can not Delete this data"
         redirect_to admin_category_data_url
@@ -41,6 +44,6 @@ class CategoryController < ApplicationController
 
   def load_category
     @category = Category.find_by id: params[:id].to_i
-    return render :errorFind unless @category
+    return render :"user/errorFind" unless @category
   end
 end

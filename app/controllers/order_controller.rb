@@ -1,19 +1,21 @@
 class OrderController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :user_params, only: :create
+  before_action :order_params, only: :create
   before_action :load_orders, only: :update
 
-  def index; end
+  def index
+    authorize! :read, Order
+  end
 
   def create
+    authorize! :create, Order
     @user = current_user
-    @order = @user.orders.new name: user_params[:name],
-      phone: user_params[:phone], address: user_params[:address]
+    @order = @user.orders.new name: order_params[:name],
+      phone: order_params[:phone], address: order_params[:address]
 
     @current_cart = current_cart
     @current_quantity = current_quanity
     @errorlist = []
-
     # Check inventory of current product
     if @current_cart.nil?
       respond_to do |format|
@@ -26,6 +28,7 @@ class OrderController < ApplicationController
   end
 
   def update
+    authorize! :update, Order
     @orders.update_attribute :status, params[:status].to_i
     respond_to do |format|
       format.js
@@ -43,7 +46,7 @@ class OrderController < ApplicationController
 
   private
 
-  def user_params
+  def order_params
     params.require(:order)
   end
 
@@ -69,6 +72,15 @@ class OrderController < ApplicationController
     @order.update_attribute :totalPrice, @totalprice
     destroy_all_cart
     flash[:success] = "You Order is Processing"
+
+    # Real-Time User Notification
+    @admin_user = User.admin_array
+    @admin_user.each do |admin|
+      unless @user.admin? && @user.id == admin.id
+        ActionCable.server.broadcast "order:#{admin.id}",
+          {name_id: @user.id, order_id: @order.id}
+      end
+    end
     @user.create_activity key: "user.order", owner: @order
     Resque.enqueue(ChatWorkOrder, @user.name, @order.id)
     Resque.enqueue(SentMailOrder, @user.id, @order.id)
@@ -97,7 +109,7 @@ class OrderController < ApplicationController
 
   # Check User Approve to pay the rest inventory
   def approve_check
-    saving_order user_params[:approve] if user_params[:approve].present?
+    saving_order order_params[:approve] if order_params[:approve].present?
   end
 
   # Check Whether Inventory is enough
@@ -106,7 +118,7 @@ class OrderController < ApplicationController
       saving_order
     else
       approve_check
-      if user_params[:approve].nil?
+      if order_params[:approve].nil?
         respond_to do |format|
           format.js{render "errorlist.js.erb"}
         end

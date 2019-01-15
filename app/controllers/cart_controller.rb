@@ -17,6 +17,7 @@ class CartController < ApplicationController
   end
 
   def update
+    authorize! :create, Order
     params[:newVal] = 1 if params[:newVal].to_i.zero?
     updatecookie params[:id], params[:newVal]
     respond_to do |format|
@@ -25,6 +26,7 @@ class CartController < ApplicationController
   end
 
   def destroy
+    authorize! :destroy, Order
     destroycookie params[:id]
     respond_to do |format|
       format.js
@@ -34,11 +36,8 @@ class CartController < ApplicationController
   private
 
   def user_validate
-    if user_signed_in?
-      @user = current_user
-    else
-      redirect_to product_index_path
-    end
+    authorize! :create, Order
+    @user = current_user
   end
 
   def initcart

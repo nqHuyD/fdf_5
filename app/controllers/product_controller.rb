@@ -1,14 +1,16 @@
 class ProductController < ApplicationController
   skip_before_action :verify_authenticity_token
-  skip_authorization_check
 
   before_action :product_params, only: [:create, :update]
   before_action :total_init, only: [:index]
   before_action :load_filter, only: [:category, :filter, :range_price, :rank]
 
-  def index; end
+  def index
+    authorize! :read, Product
+  end
 
   def create
+    authorize! :create, Product
     @food_images = product_params[:food_images]
     if session[:category_product].blank? || @food_images.blank?
       return respond_to do |format|
@@ -44,8 +46,6 @@ class ProductController < ApplicationController
 
   # Filter By Sorting
   def filter
-    @q = Product.ransack(params[:q])
-    @products = @q.result
     respond_to do |format|
       format.js
     end
@@ -107,6 +107,9 @@ class ProductController < ApplicationController
   end
 
   def load_filter
+    @q = Product.ransack(params[:q])
+    @products = @q.result
+
     # Loading Filter
     loading_filter
 

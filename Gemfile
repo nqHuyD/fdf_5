@@ -8,7 +8,6 @@ gem "carrierwave", "1.2.2"
 gem "chatwork"
 gem "coffee-rails", "4.2.2"
 gem "config"
-gem "faker", "1.7.3"
 gem "friendly_id", "~> 5.2.4"
 gem "figaro"
 gem "kaminari"
@@ -25,6 +24,7 @@ gem "puma", "3.9.1"
 gem "rails", "5.1.6"
 gem "ransack", github: "activerecord-hackery/ransack"
 gem "rubocop", "~> 0.54.0", require: false
+gem "redis"
 gem "resque"
 gem "sass-rails", "5.0.6"
 gem "simple_form"
@@ -40,7 +40,11 @@ gem "whenever", :require => false
 
 group :development, :test do
   gem "byebug", "9.0.6", platform: :mri
+  gem "capybara"
+  gem "factory_girl_rails"
+  gem "faker"
   gem "sqlite3", "1.3.13"
+  gem "rspec-rails"
 end
 
 group :development do
@@ -54,7 +58,12 @@ group :test do
   gem "guard-minitest", "2.4.4"
   gem "minitest", "5.10.3"
   gem "minitest-reporters", "1.1.14"
-  gem "rails-controller-testing", "1.0.2"
+  gem "shoulda-matchers"
+  gem "database_cleaner"
+  gem "rspec-rails"
+  gem "rails-controller-testing"
+  gem "rspec-collection_matchers"
+  gem "simplecov", require: false
 end
 
 group :production do
